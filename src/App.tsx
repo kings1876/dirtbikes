@@ -1,24 +1,38 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { ActivePage, CartItem, PolicyPage, Product } from './types';
 import { PRODUCTS } from './data/products';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { ProductModal } from './components/ProductModal';
 import { OrderModal } from './components/OrderModal';
 import { SearchModal } from './components/SearchModal';
 import { LiveChatDrawer } from './components/LiveChatDrawer';
 import { PolicyModal } from './components/PolicyModal';
 import { CookieBanner } from './components/CookieBanner';
+import { ScrollToTop } from './components/ScrollToTop';
 import { ShopView } from './views/ShopView';
 import { BlogView } from './views/BlogView';
 import { AboutView } from './views/AboutView';
 import { ContactView } from './views/ContactView';
 import { FaqView } from './views/FaqView';
+import { ProductPageView } from './views/ProductPageView';
 
 export default function App() {
+  const navigate = useNavigate();
+
   // Navigation strictly ordered: Shop, Blog, About, Contact, FAQ
   const [activePage, setActivePage] = useState<ActivePage>('shop');
   const [shopCategory, setShopCategory] = useState<string>('All');
+
+  // Switching tabs always returns to the app root (product pages live on their own route)
+  const handleSetActivePage = (page: ActivePage) => {
+    navigate('/');
+    setActivePage(page);
+  };
+
+  const goToProduct = (product: Product) => {
+    navigate(`/product/${product.slug}`);
+  };
 
   // Cart & Order State
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
@@ -36,7 +50,6 @@ export default function App() {
   });
 
   // Modals & Drawers
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -102,15 +115,18 @@ export default function App() {
         </div>
       )}
 
+      <ScrollToTop />
+
       {/* Main Sticky Navbar */}
       <Navbar
         activePage={activePage}
-        setActivePage={setActivePage}
+        setActivePage={handleSetActivePage}
         cartItems={cartItems}
         setIsCartOpen={setIsCartOpen}
         setIsSearchOpen={setIsSearchOpen}
         setIsChatOpen={setIsChatOpen}
         onSelectGMX={() => {
+          navigate('/');
           setActivePage('shop');
           setShopCategory('GMX Australian Dirt Bikes');
         }}
@@ -118,40 +134,51 @@ export default function App() {
 
       {/* Page Content View */}
       <main className="flex-1">
-        {activePage === 'shop' && (
-          <ShopView
-            onSelectProduct={setSelectedProduct}
-            onAddToCart={handleAddToCart}
-            onInstantOrder={handleInstantOrder}
-            openChat={() => setIsChatOpen(true)}
-            selectedCategory={shopCategory}
-            onSelectCategory={setShopCategory}
+        <Routes>
+          <Route
+            path="/product/:slug"
+            element={
+              <ProductPageView
+                onAddToCart={handleAddToCart}
+                onInstantOrder={handleInstantOrder}
+                onSelectProduct={goToProduct}
+              />
+            }
           />
-        )}
+          <Route
+            path="*"
+            element={
+              <>
+                {activePage === 'shop' && (
+                  <ShopView
+                    onSelectProduct={goToProduct}
+                    onAddToCart={handleAddToCart}
+                    onInstantOrder={handleInstantOrder}
+                    openChat={() => setIsChatOpen(true)}
+                    selectedCategory={shopCategory}
+                    onSelectCategory={setShopCategory}
+                  />
+                )}
 
-        {activePage === 'blog' && <BlogView />}
+                {activePage === 'blog' && <BlogView />}
 
-        {activePage === 'about' && (
-          <AboutView onExploreShop={() => setActivePage('shop')} />
-        )}
+                {activePage === 'about' && (
+                  <AboutView onExploreShop={() => setActivePage('shop')} />
+                )}
 
-        {activePage === 'contact' && (
-          <ContactView openLiveChat={() => setIsChatOpen(true)} />
-        )}
+                {activePage === 'contact' && (
+                  <ContactView openLiveChat={() => setIsChatOpen(true)} />
+                )}
 
-        {activePage === 'faq' && <FaqView />}
+                {activePage === 'faq' && <FaqView />}
+              </>
+            }
+          />
+        </Routes>
       </main>
 
       {/* Footer */}
-      <Footer setActivePage={setActivePage} openPolicy={setActivePolicy} />
-
-      {/* Product Deep-Dive Modal */}
-      <ProductModal
-        product={selectedProduct}
-        onClose={() => setSelectedProduct(null)}
-        onAddToCart={handleAddToCart}
-        onInstantOrder={handleInstantOrder}
-      />
+      <Footer setActivePage={handleSetActivePage} openPolicy={setActivePolicy} />
 
       {/* Full Order & Cart Form Modal with Crypto 10% Discount */}
       <OrderModal
@@ -167,7 +194,7 @@ export default function App() {
       <SearchModal
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
-        onSelectProduct={setSelectedProduct}
+        onSelectProduct={goToProduct}
       />
 
       {/* Live Chat Desk Drawer (Tawk.to Integration) */}
