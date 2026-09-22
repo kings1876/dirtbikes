@@ -1,0 +1,6 @@
+{
+  "name": "Kanvale Dirt Bikes",
+  "description": "High-performance electric dirt bikes engineered for ultimate torque and trail dominance. Free nationwide shipping, adult & youth e-motos, and 10% crypto discount.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

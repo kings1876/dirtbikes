@@ -1,0 +1,189 @@
+import React, { useState, useEffect } from 'react';
+import { ActivePage, CartItem, PolicyPage, Product } from './types';
+import { PRODUCTS } from './data/products';
+import { Navbar } from './components/Navbar';
+import { Footer } from './components/Footer';
+import { ProductModal } from './components/ProductModal';
+import { OrderModal } from './components/OrderModal';
+import { SearchModal } from './components/SearchModal';
+import { LiveChatDrawer } from './components/LiveChatDrawer';
+import { PolicyModal } from './components/PolicyModal';
+import { CookieBanner } from './components/CookieBanner';
+import { ShopView } from './views/ShopView';
+import { BlogView } from './views/BlogView';
+import { AboutView } from './views/AboutView';
+import { ContactView } from './views/ContactView';
+import { FaqView } from './views/FaqView';
+
+export default function App() {
+  // Navigation strictly ordered: Shop, Blog, About, Contact, FAQ
+  const [activePage, setActivePage] = useState<ActivePage>('shop');
+  const [shopCategory, setShopCategory] = useState<string>('All');
+
+  // Cart & Order State
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    try {
+      const saved = localStorage.getItem('kanvale_cart');
+      if (saved) return JSON.parse(saved);
+    } catch {}
+    // Default with top popular bike pre-loaded so cart is ready to inspect
+    return [
+      {
+        product: PRODUCTS[1], // Storm Pro 72V Enduro Trail
+        quantity: 1,
+      },
+    ];
+  });
+
+  // Modals & Drawers
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [activePolicy, setActivePolicy] = useState<PolicyPage>(null);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  // Sync cart to localStorage
+  useEffect(() => {
+    try {
+      localStorage.setItem('kanvale_cart', JSON.stringify(cartItems));
+    } catch {}
+  }, [cartItems]);
+
+  const showToast = (msg: string) => {
+    setToastMessage(msg);
+    setTimeout(() => setToastMessage(null), 3000);
+  };
+
+  const handleAddToCart = (product: Product) => {
+    setCartItems((prev) => {
+      const existing = prev.find((item) => item.product.id === product.id);
+      if (existing) {
+        return prev.map((item) =>
+          item.product.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      }
+      return [...prev, { product, quantity: 1 }];
+    });
+    showToast(`Added ${product.name} to Cart. Free shipping & 10% crypto discount applied!`);
+  };
+
+  const handleInstantOrder = (product: Product) => {
+    setCartItems((prev) => {
+      const existing = prev.find((item) => item.product.id === product.id);
+      if (existing) {
+        return prev;
+      }
+      return [...prev, { product, quantity: 1 }];
+    });
+    setIsCartOpen(true);
+  };
+
+  const handleUpdateQuantity = (productId: string, quantity: number) => {
+    setCartItems((prev) =>
+      prev.map((item) => (item.product.id === productId ? { ...item, quantity } : item))
+    );
+  };
+
+  const handleRemoveItem = (productId: string) => {
+    setCartItems((prev) => prev.filter((item) => item.product.id !== productId));
+  };
+
+  const handleClearCart = () => {
+    setCartItems([]);
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-zinc-950 text-zinc-100 font-sans selection:bg-emerald-500 selection:text-black">
+      {/* Toast notification */}
+      {toastMessage && (
+        <div className="fixed top-20 right-4 z-50 py-3 px-4 rounded-2xl bg-emerald-950 border border-emerald-500/50 text-emerald-300 text-xs font-mono font-semibold shadow-2xl backdrop-blur-md animate-bounce">
+          ⚡ {toastMessage}
+        </div>
+      )}
+
+      {/* Main Sticky Navbar */}
+      <Navbar
+        activePage={activePage}
+        setActivePage={setActivePage}
+        cartItems={cartItems}
+        setIsCartOpen={setIsCartOpen}
+        setIsSearchOpen={setIsSearchOpen}
+        setIsChatOpen={setIsChatOpen}
+        onSelectGMX={() => {
+          setActivePage('shop');
+          setShopCategory('GMX Australian Dirt Bikes');
+        }}
+      />
+
+      {/* Page Content View */}
+      <main className="flex-1">
+        {activePage === 'shop' && (
+          <ShopView
+            onSelectProduct={setSelectedProduct}
+            onAddToCart={handleAddToCart}
+            onInstantOrder={handleInstantOrder}
+            openChat={() => setIsChatOpen(true)}
+            selectedCategory={shopCategory}
+            onSelectCategory={setShopCategory}
+          />
+        )}
+
+        {activePage === 'blog' && <BlogView />}
+
+        {activePage === 'about' && (
+          <AboutView onExploreShop={() => setActivePage('shop')} />
+        )}
+
+        {activePage === 'contact' && (
+          <ContactView openLiveChat={() => setIsChatOpen(true)} />
+        )}
+
+        {activePage === 'faq' && <FaqView />}
+      </main>
+
+      {/* Footer */}
+      <Footer setActivePage={setActivePage} openPolicy={setActivePolicy} />
+
+      {/* Product Deep-Dive Modal */}
+      <ProductModal
+        product={selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+        onAddToCart={handleAddToCart}
+        onInstantOrder={handleInstantOrder}
+      />
+
+      {/* Full Order & Cart Form Modal with Crypto 10% Discount */}
+      <OrderModal
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        cartItems={cartItems}
+        onUpdateQuantity={handleUpdateQuantity}
+        onRemoveItem={handleRemoveItem}
+        onClearCart={handleClearCart}
+      />
+
+      {/* Instant Search Modal */}
+      <SearchModal
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+        onSelectProduct={setSelectedProduct}
+      />
+
+      {/* Live Chat Desk Drawer (Tawk.to Integration) */}
+      <LiveChatDrawer
+        isOpen={isChatOpen}
+        onClose={() => setIsChatOpen(false)}
+      />
+
+      {/* Policy Modal (Shipping, Refund, Privacy, Terms) */}
+      <PolicyModal
+        policy={activePolicy}
+        onClose={() => setActivePolicy(null)}
+      />
+
+      {/* Cookie / GDPR Notice */}
+      <CookieBanner />
+    </div>
+  );
+}
