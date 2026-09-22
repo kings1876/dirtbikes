@@ -135,7 +135,7 @@ export const ShopView: React.FC<ShopViewProps> = ({
                     🇦🇺 GMX CATALOGUE
                   </span>
                   <span className="text-sm font-mono font-bold text-amber-300">
-                    GMX Motorbikes Range (gmxmotorbikes.com.au)
+                    GMX Motorbikes Range
                   </span>
                 </div>
                 <p className="text-xs text-zinc-300 max-w-2xl leading-relaxed">
