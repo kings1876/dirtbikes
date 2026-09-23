@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Product } from '../types';
 import { CATEGORIES, PRODUCTS } from '../data/products';
 import { ProductCard } from '../components/ProductCard';
+import { useSEO } from '../hooks/useSEO';
 import { 
   Zap, 
   Truck, 
@@ -79,6 +80,13 @@ export const ShopView: React.FC<ShopViewProps> = ({
 
     return list;
   }, [selectedCategory, selectedSubcategory, selectedBadge, sortBy]);
+
+  useSEO({
+    title: 'Shop Electric Dirt Bikes | Kanvale Dirt Bikes',
+    description:
+      'Browse 18 high-performance electric & GMX petrol dirt bikes for adults and kids. Free nationwide shipping, 2-year warranty, and 10% instant crypto discount.',
+    canonicalPath: '/shop',
+  });
 
   return (
     <div className="space-y-10 pb-16">

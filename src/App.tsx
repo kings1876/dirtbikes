@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { ActivePage, CartItem, PolicyPage, Product } from './types';
 import { PRODUCTS } from './data/products';
 import { Navbar } from './components/Navbar';
@@ -16,18 +16,34 @@ import { AboutView } from './views/AboutView';
 import { ContactView } from './views/ContactView';
 import { FaqView } from './views/FaqView';
 import { ProductPageView } from './views/ProductPageView';
+import { NotFoundView } from './views/NotFoundView';
+
+// Each nav tab now maps to a real, crawlable URL instead of client-only state.
+const PAGE_PATHS: Record<ActivePage, string> = {
+  shop: '/shop',
+  blog: '/blog',
+  about: '/about',
+  contact: '/contact',
+  faq: '/faq',
+};
+
+function pathToActivePage(pathname: string): ActivePage {
+  const match = (Object.entries(PAGE_PATHS) as [ActivePage, string][]).find(
+    ([, path]) => pathname === path
+  );
+  return match ? match[0] : 'shop';
+}
 
 export default function App() {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  // Navigation strictly ordered: Shop, Blog, About, Contact, FAQ
-  const [activePage, setActivePage] = useState<ActivePage>('shop');
+  // Derived from the URL so the Navbar/Footer highlight the correct tab on load, back/forward, etc.
+  const activePage = pathToActivePage(location.pathname);
   const [shopCategory, setShopCategory] = useState<string>('All');
 
-  // Switching tabs always returns to the app root (product pages live on their own route)
   const handleSetActivePage = (page: ActivePage) => {
-    navigate('/');
-    setActivePage(page);
+    navigate(PAGE_PATHS[page]);
   };
 
   const goToProduct = (product: Product) => {
@@ -126,15 +142,41 @@ export default function App() {
         setIsSearchOpen={setIsSearchOpen}
         setIsChatOpen={setIsChatOpen}
         onSelectGMX={() => {
-          navigate('/');
-          setActivePage('shop');
+          navigate('/shop');
           setShopCategory('GMX Australian Dirt Bikes');
         }}
       />
 
-      {/* Page Content View */}
+      {/* Page Content View — each menu item is now a real, crawlable route */}
       <main className="flex-1">
         <Routes>
+          <Route path="/" element={<Navigate to="/shop" replace />} />
+
+          <Route
+            path="/shop"
+            element={
+              <ShopView
+                onSelectProduct={goToProduct}
+                onAddToCart={handleAddToCart}
+                onInstantOrder={handleInstantOrder}
+                openChat={() => setIsChatOpen(true)}
+                selectedCategory={shopCategory}
+                onSelectCategory={setShopCategory}
+              />
+            }
+          />
+
+          <Route path="/blog" element={<BlogView />} />
+
+          <Route path="/about" element={<AboutView onExploreShop={() => navigate('/shop')} />} />
+
+          <Route
+            path="/contact"
+            element={<ContactView openLiveChat={() => setIsChatOpen(true)} />}
+          />
+
+          <Route path="/faq" element={<FaqView />} />
+
           <Route
             path="/product/:slug"
             element={
@@ -145,35 +187,8 @@ export default function App() {
               />
             }
           />
-          <Route
-            path="*"
-            element={
-              <>
-                {activePage === 'shop' && (
-                  <ShopView
-                    onSelectProduct={goToProduct}
-                    onAddToCart={handleAddToCart}
-                    onInstantOrder={handleInstantOrder}
-                    openChat={() => setIsChatOpen(true)}
-                    selectedCategory={shopCategory}
-                    onSelectCategory={setShopCategory}
-                  />
-                )}
 
-                {activePage === 'blog' && <BlogView />}
-
-                {activePage === 'about' && (
-                  <AboutView onExploreShop={() => setActivePage('shop')} />
-                )}
-
-                {activePage === 'contact' && (
-                  <ContactView openLiveChat={() => setIsChatOpen(true)} />
-                )}
-
-                {activePage === 'faq' && <FaqView />}
-              </>
-            }
-          />
+          <Route path="*" element={<NotFoundView />} />
         </Routes>
       </main>
 

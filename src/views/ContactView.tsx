@@ -1,22 +1,30 @@
 import React, { useState } from 'react';
-import { 
-  Mail, 
-  MapPin, 
-  Phone, 
-  Clock, 
-  Send, 
-  CheckCircle2, 
-  MessageSquare, 
-  ShieldCheck, 
+import {
+  Mail,
+  MapPin,
+  Phone,
+  Clock,
+  Send,
+  CheckCircle2,
+  MessageSquare,
+  ShieldCheck,
   Coins,
   Truck
 } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 interface ContactViewProps {
   openLiveChat: () => void;
 }
 
 export const ContactView: React.FC<ContactViewProps> = ({ openLiveChat }) => {
+  useSEO({
+    title: 'Contact Us | Kanvale Dirt Bikes',
+    description:
+      'Get in touch with Kanvale Dirt Bikes for order support, wholesale inquiries, or technical questions about our electric dirt bike lineup.',
+    canonicalPath: '/contact',
+  });
+
   const [submitted, setSubmitted] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [formData, setFormData] = useState({

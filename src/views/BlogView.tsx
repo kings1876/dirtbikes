@@ -2,9 +2,17 @@ import React, { useState } from 'react';
 import { BLOG_POSTS } from '../data/blog';
 import { BlogPost } from '../types';
 import { Calendar, Clock, User, ArrowRight, X, BookOpen, Share2 } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 export const BlogView: React.FC = () => {
   const [selectedArticle, setSelectedArticle] = useState<BlogPost | null>(null);
+
+  useSEO({
+    title: 'Electric Dirt Bike Guides & Insights | Kanvale Dirt Bikes',
+    description:
+      'Trail regulations, youth safety, and electric powersport engineering guides for riders in Perth, Melbourne, Sydney, and across the USA.',
+    canonicalPath: '/blog',
+  });
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">

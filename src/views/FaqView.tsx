@@ -1,8 +1,30 @@
 import React, { useState } from 'react';
 import { FAQ_ITEMS } from '../data/faq';
 import { ChevronDown, HelpCircle, Search, Sparkles, Coins, Truck, ShieldCheck } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
 
 export const FaqView: React.FC = () => {
+  useSEO({
+    title: 'Frequently Asked Questions | Kanvale Dirt Bikes',
+    description:
+      'Answers on free nationwide shipping, the 10% crypto discount, battery & waterproof ratings, and warranty coverage for Kanvale electric dirt bikes.',
+    canonicalPath: '/faq',
+    jsonLd: [faqJsonLd],
+  });
+
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedId, setExpandedId] = useState<string | null>(FAQ_ITEMS[0].id);

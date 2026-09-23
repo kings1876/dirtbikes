@@ -1,23 +1,31 @@
 import React from 'react';
-import { 
-  Zap, 
-  Award, 
-  MapPin, 
-  Calendar, 
-  ShieldCheck, 
-  Truck, 
-  Coins, 
+import {
+  Zap,
+  Award,
+  MapPin,
+  Calendar,
+  ShieldCheck,
+  Truck,
+  Coins,
   CheckCircle2,
   Cpu,
   Flame,
   ArrowRight
 } from 'lucide-react';
+import { useSEO } from '../hooks/useSEO';
 
 interface AboutViewProps {
   onExploreShop: () => void;
 }
 
 export const AboutView: React.FC<AboutViewProps> = ({ onExploreShop }) => {
+  useSEO({
+    title: 'About Kanvale Dirt Bikes | Founded 2000',
+    description:
+      'Kanvale Dirt Bikes has engineered high-torque electric off-road motorcycles since 2000. Learn our history, milestones, and engineering philosophy.',
+    canonicalPath: '/about',
+  });
+
   const milestones = [
     {
       year: '25 May 2000',
