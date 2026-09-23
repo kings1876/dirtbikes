@@ -3,14 +3,11 @@ import { Product } from '../types';
 import { CATEGORIES, PRODUCTS } from '../data/products';
 import { ProductCard } from '../components/ProductCard';
 import { useSEO } from '../hooks/useSEO';
-import { 
-  Zap, 
-  Truck, 
-  Coins, 
-  Filter, 
-  Layers, 
-  Sparkles, 
-  SlidersHorizontal, 
+import {
+  Zap,
+  Filter,
+  Layers,
+  SlidersHorizontal,
   ArrowUpDown,
   ArrowRight
 } from 'lucide-react';
@@ -90,81 +87,18 @@ export const ShopView: React.FC<ShopViewProps> = ({
 
   return (
     <div className="space-y-10 pb-16">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-3xl bg-zinc-950 border border-zinc-800/80 mx-4 sm:mx-6 lg:mx-8 mt-4">
-        {/* Background Image with High Contrast Overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1920&q=80"
-            alt="Kanvale Electric Dirt Bike Action"
-            className="w-full h-full object-cover object-center opacity-35 filter contrast-125"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/80 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
-        </div>
-
-        <div className="relative z-10 max-w-4xl px-6 sm:px-12 py-16 sm:py-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold mb-4">
-            <Zap className="w-3.5 h-3.5" />
-            <span>PURE ELECTRIC TORQUE • ZERO EMISSIONS • INSTANT ACCELERATION</span>
-          </div>
-
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight uppercase leading-tight font-sans">
-            High-Performance <br />
-            <span className="text-emerald-400 font-mono">Electric Dirt Bikes</span>
-          </h1>
-
-          <p className="mt-4 text-sm sm:text-base text-zinc-300 max-w-2xl leading-relaxed">
-            Engineered since 2000 to crush steep climbs and technical singletracks in complete silence. Experience 900+ Nm of instant wheel torque with zero oil changes, no clutch stalling, and <strong>free nationwide freight delivery</strong>.
-          </p>
-
-          {/* Quick Perks Pill Row */}
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-xs font-mono">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-zinc-900/90 border border-zinc-700/60 text-zinc-200 backdrop-blur-md">
-              <Truck className="w-4 h-4 text-emerald-400" />
-              Free Nationwide Shipping
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-950/90 border border-emerald-500/40 text-emerald-300 font-bold backdrop-blur-md">
-              <Coins className="w-4 h-4 text-emerald-400" />
-              10% Instant Crypto Discount
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-zinc-900/90 border border-zinc-700/60 text-zinc-200 backdrop-blur-md">
-              <Sparkles className="w-4 h-4 text-amber-400" />
-              2-Year Factory Warranty
-            </span>
-          </div>
-
-          {/* GMX Motorbikes Spotlight Callout */}
-          <div className="mt-8 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-950/80 via-zinc-900/95 to-amber-950/60 border-2 border-amber-500/50 shadow-2xl backdrop-blur-md">
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-              <div className="space-y-1.5">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-black bg-amber-500 text-black uppercase tracking-wider">
-                    🇦🇺 GMX CATALOGUE
-                  </span>
-                  <span className="text-sm font-mono font-bold text-amber-300">
-                    GMX Motorbikes Range
-                  </span>
-                </div>
-                <p className="text-xs text-zinc-300 max-w-2xl leading-relaxed">
-                  Now featured in our showroom: <strong>70cc</strong> Semi-Auto, <strong>110cc</strong> Youth, <strong>125cc Pro X</strong>, <strong>140cc</strong> Racing, <strong>250cc Enduro</strong>, and <strong>ECR Electric</strong> (3000HPU &amp; V75).
-                </p>
-              </div>
-
-              <button
-                onClick={() => {
-                  setSelectedCategory('GMX Australian Dirt Bikes');
-                  const target = document.getElementById('catalog-section');
-                  if (target) target.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-mono text-xs font-black transition-all shadow-lg shadow-amber-500/30 flex items-center justify-center gap-2 cursor-pointer flex-shrink-0 w-full sm:w-auto"
-              >
-                <span>View GMX Bikes (9 Models)</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </div>
+      {/* Compact Page Header */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold flex items-center gap-1.5">
+          <Zap className="w-3.5 h-3.5" />
+          Full Showroom Inventory
+        </span>
+        <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight uppercase mt-1">
+          Shop All Electric Dirt Bikes
+        </h1>
+        <p className="mt-2 text-sm text-zinc-400 max-w-2xl leading-relaxed">
+          {PRODUCTS.length} adult, youth, dual-sport, and GMX Australian models. Free nationwide shipping, 2-year warranty, and 10% instant crypto discount on every order.
+        </p>
       </section>
 
       {/* Shop Filtering Container (Category → Subcategory → Product) */}

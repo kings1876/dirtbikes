@@ -11,7 +11,8 @@ const SITE_URL = 'https://kanvaledirtbikes.com.au';
 const today = new Date().toISOString().split('T')[0];
 
 const staticRoutes = [
-  { path: '/shop', priority: '1.0', changefreq: 'daily' },
+  { path: '/', priority: '1.0', changefreq: 'daily' },
+  { path: '/shop', priority: '0.9', changefreq: 'daily' },
   { path: '/blog', priority: '0.7', changefreq: 'weekly' },
   { path: '/about', priority: '0.6', changefreq: 'monthly' },
   { path: '/contact', priority: '0.6', changefreq: 'monthly' },

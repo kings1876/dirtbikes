@@ -67,5 +67,5 @@ export interface BlogPost {
   content: string[];
 }
 
-export type ActivePage = 'shop' | 'blog' | 'about' | 'contact' | 'faq';
+export type ActivePage = 'home' | 'shop' | 'blog' | 'about' | 'contact' | 'faq';
 export type PolicyPage = 'shipping' | 'refund' | 'privacy' | 'terms' | null;

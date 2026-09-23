@@ -91,8 +91,8 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Brand Logo */}
-          <button 
-            onClick={() => handleNavClick('shop')}
+          <button
+            onClick={() => handleNavClick('home')}
             className="flex items-center text-left focus:outline-none group cursor-pointer"
             aria-label="Kanvale Dirt Bikes Home"
           >

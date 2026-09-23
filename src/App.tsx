@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { ActivePage, CartItem, PolicyPage, Product } from './types';
 import { PRODUCTS } from './data/products';
 import { Navbar } from './components/Navbar';
@@ -10,6 +10,7 @@ import { LiveChatDrawer } from './components/LiveChatDrawer';
 import { PolicyModal } from './components/PolicyModal';
 import { CookieBanner } from './components/CookieBanner';
 import { ScrollToTop } from './components/ScrollToTop';
+import { HomeView } from './views/HomeView';
 import { ShopView } from './views/ShopView';
 import { BlogView } from './views/BlogView';
 import { AboutView } from './views/AboutView';
@@ -20,6 +21,7 @@ import { NotFoundView } from './views/NotFoundView';
 
 // Each nav tab now maps to a real, crawlable URL instead of client-only state.
 const PAGE_PATHS: Record<ActivePage, string> = {
+  home: '/',
   shop: '/shop',
   blog: '/blog',
   about: '/about',
@@ -31,7 +33,7 @@ function pathToActivePage(pathname: string): ActivePage {
   const match = (Object.entries(PAGE_PATHS) as [ActivePage, string][]).find(
     ([, path]) => pathname === path
   );
-  return match ? match[0] : 'shop';
+  return match ? match[0] : 'home';
 }
 
 export default function App() {
@@ -150,7 +152,19 @@ export default function App() {
       {/* Page Content View — each menu item is now a real, crawlable route */}
       <main className="flex-1">
         <Routes>
-          <Route path="/" element={<Navigate to="/shop" replace />} />
+          <Route
+            path="/"
+            element={
+              <HomeView
+                onSelectProduct={goToProduct}
+                onAddToCart={handleAddToCart}
+                onSelectGMX={() => {
+                  navigate('/shop');
+                  setShopCategory('GMX Australian Dirt Bikes');
+                }}
+              />
+            }
+          />
 
           <Route
             path="/shop"
