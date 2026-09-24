@@ -60,7 +60,7 @@ export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
         <span className="text-[10px] tracking-widest uppercase font-mono text-zinc-400 font-medium -mt-1 flex items-center gap-1.5">
           <span>HIGH-TORQUE E-MOTOS</span>
           <span className="w-1 h-1 rounded-full bg-emerald-500 inline-block"></span>
-          <span className="text-zinc-400">EST. 2000</span>
+          <span className="text-zinc-400">AU DEALER</span>
         </span>
       </div>
     </div>

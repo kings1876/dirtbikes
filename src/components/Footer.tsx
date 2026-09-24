@@ -68,7 +68,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, openPolicy }) => 
           <div className="lg:col-span-2 space-y-4">
             <Logo size="md" />
             <p className="text-xs leading-relaxed text-zinc-400 pr-4">
-              Founded on <span className="text-zinc-200 font-semibold">25 May 2000 in Australia</span>, Kanvale Dirt Bikes pioneered electric off-road powertrains to deliver unmatched zero-RPM torque without the noise, emissions, and maintenance headaches of gas two-strokes. Now serving riders across the USA and worldwide with premium crated delivery.
+Kanvale Dirt Bikes is an <span className="text-zinc-200 font-semibold">authorised Australian retailer</span> of Surron, Talaria, Stark Future, and GMX electric dirt bikes — delivering unmatched zero-RPM torque without the noise, emissions, and maintenance headaches of gas two-strokes. Serving riders across Australia and the USA with premium crated delivery.
             </p>
 
             <div className="pt-2 space-y-2 text-xs">
@@ -135,7 +135,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, openPolicy }) => 
                   className="hover:text-emerald-400 transition-colors flex items-center gap-1"
                 >
                   <ChevronRight className="w-3 h-3 text-emerald-500" />
-                  <span>About Our Heritage (2000)</span>
+                  <span>About Kanvale</span>
                 </button>
               </li>
               <li>
@@ -236,7 +236,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage, openPolicy }) => 
 
         {/* Bottom copyright */}
         <div className="mt-8 pt-6 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400">
-          <p>© {new Date().getFullYear()} Kanvale Dirt Bikes. All rights reserved. Founded 25 May 2000.</p>
+          <p>© {new Date().getFullYear()} Kanvale Dirt Bikes. All rights reserved. Authorised Australian dealer.</p>
           <div className="flex items-center space-x-4 text-[11px]">
             <span>Prices in USD ($)</span>
             <span>•</span>

@@ -21,6 +21,9 @@ import {
   HelpCircle,
   Cpu,
   Award,
+  Bike,
+  Flame,
+  Gauge,
 } from 'lucide-react';
 
 interface HomeViewProps {
@@ -31,23 +34,26 @@ interface HomeViewProps {
 }
 
 const CATEGORY_ICONS: Record<string, React.ElementType> = {
-  'Adult Electric Dirt Bikes': Zap,
-  'Youth & Childrens E-Dirt Bikes': Users,
+  Surron: Zap,
+  Talaria: Gauge,
+  'Stark Future': Flame,
+  '79Bikes': Bike,
+  Yotsuba: Users,
   'Electric Balance Bikes': Baby,
   'GMX Australian Dirt Bikes': ShieldCheck,
   'Parts & Upgrades': Wrench,
 };
 
-const ENGINEERING_BENCHMARKS = [
+const DEALER_BENCHMARKS = [
   {
-    icon: Calendar,
-    title: 'Engineering Since 2000',
-    description: 'A quarter-century of purpose-built electric off-road engineering, refined through real trail testing.',
+    icon: ShieldCheck,
+    title: 'Authorised Australian Dealer',
+    description: 'Genuine Surron, Talaria, Stark Future, and GMX stock, backed by manufacturer warranty support.',
   },
   {
     icon: Zap,
-    title: 'High-Torque 60V–80V Platforms',
-    description: 'Zero-lag brushless motors delivering instant wheel torque without the noise or maintenance of a two-stroke.',
+    title: 'Curated, Not Everything',
+    description: 'We stock the models our own riders would buy — not every SKU a brand makes.',
   },
   {
     icon: ShieldCheck,
@@ -57,7 +63,7 @@ const ENGINEERING_BENCHMARKS = [
   {
     icon: Truck,
     title: 'Free Nationwide Freight',
-    description: 'Steel-crated delivery to every address across Australia and the USA, plus a 10% instant crypto discount.',
+    description: 'Steel-crated delivery to every address across Australia, plus a 10% instant crypto discount.',
   },
 ];
 
@@ -79,9 +85,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
   };
 
   useSEO({
-    title: 'Kanvale Dirt Bikes | High-Performance Electric Dirt Bikes',
+    title: 'Kanvale Dirt Bikes | Surron, Talaria, Stark Future & GMX Dealer',
     description:
-      'Kanvale Dirt Bikes offers high-performance electric dirt bikes for adults and kids. Instant electric torque, zero emissions, free nationwide shipping, and 10% crypto discounts.',
+      'Kanvale Dirt Bikes is an authorised Australian retailer of Surron, Talaria, Stark Future, and GMX electric dirt bikes. Free nationwide shipping, 2-year warranty, and 10% crypto discounts.',
     canonicalPath: '/',
     jsonLd: [organizationJsonLd],
   });
@@ -103,7 +109,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         <div className="relative z-10 max-w-4xl px-6 sm:px-12 py-16 sm:py-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold mb-4">
             <Zap className="w-3.5 h-3.5" />
-            <span>PURE ELECTRIC TORQUE • ZERO EMISSIONS • INSTANT ACCELERATION</span>
+            <span>AUTHORISED SURRON • TALARIA • STARK FUTURE • GMX DEALER</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight uppercase leading-tight font-sans">
@@ -112,7 +118,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </h1>
 
           <p className="mt-4 text-sm sm:text-base text-zinc-300 max-w-2xl leading-relaxed">
-            Engineered since 2000 to crush steep climbs and technical singletracks in complete silence. Experience 900+ Nm of instant wheel torque with zero oil changes, no clutch stalling, and <strong>free nationwide freight delivery</strong>.
+            Kanvale is Australia's authorised retailer for the world's leading electric dirt bike brands — Surron, Talaria, Stark Future, and the local GMX range. Zero oil changes, no clutch stalling, and <strong>free nationwide freight delivery</strong>.
           </p>
 
           {/* Quick Perks Pill Row */}
@@ -144,7 +150,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               to="/about"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 text-zinc-200 text-sm font-bold border border-zinc-700/60 backdrop-blur-md transition-colors"
             >
-              <span>Our Story Since 2000</span>
+              <span>About Kanvale</span>
             </Link>
           </div>
 
@@ -179,11 +185,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold">
-            Engineered Lineup
+            Authorised Dealer
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">Shop By Category</h2>
+          <h2 className="text-2xl sm:text-3xl font-black text-white">Shop By Brand</h2>
           <p className="text-sm text-zinc-400 leading-relaxed">
-            Every department in one place — adult hyper machines, youth e-motos, electric balance bikes for the youngest riders, the official GMX range, and the parts that back them up.
+            Every brand we carry in one place — Surron, Talaria, Stark Future, 79Bikes, Yotsuba, GMX, and the balance bikes that start it all.
           </p>
         </div>
 
@@ -273,22 +279,22 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* Engineering Benchmarks / Brand Story */}
+      {/* Dealer Benchmarks / Brand Story */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="p-6 sm:p-10 rounded-3xl bg-zinc-900/60 border border-zinc-800/80 space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold flex items-center justify-center gap-1.5">
               <Cpu className="w-3.5 h-3.5" />
-              Engineered Since 2000
+              Why Ride With Kanvale
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white">Built for the Trail. Backed for the Long Run.</h2>
+            <h2 className="text-2xl sm:text-3xl font-black text-white">Real Brands. Real Warranty. Real Stock.</h2>
             <p className="text-sm text-zinc-400 leading-relaxed">
-              From our first 72V prototype to today's full lineup, every Kanvale bike is engineered around instant torque, zero maintenance, and real warranty coverage.
+              We don't build these bikes — we're the Australian dealer who backs them, from checkout to warranty claim.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {ENGINEERING_BENCHMARKS.map((item) => (
+            {DEALER_BENCHMARKS.map((item) => (
               <div key={item.title} className="p-4 rounded-2xl bg-zinc-950/60 border border-zinc-800/80 space-y-2">
                 <item.icon className="w-5 h-5 text-emerald-400" />
                 <h3 className="text-xs font-bold text-white leading-snug">{item.title}</h3>

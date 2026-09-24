@@ -96,8 +96,8 @@ export const ContactView: React.FC<ContactViewProps> = ({ openLiveChat }) => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-white block">Australian Heritage Office:</strong>
-                  <span>Founded 25 May 2000, Australia</span>
+                  <strong className="text-white block">Australian Dealership Office:</strong>
+                  <span>Authorised Surron, Talaria, Stark Future & GMX Dealer</span>
                 </div>
               </div>
 

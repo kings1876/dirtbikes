@@ -18,7 +18,7 @@ export interface Product {
   id: string;
   name: string;
   slug: string;
-  category: 'Adult Electric Dirt Bikes' | 'Youth & Childrens E-Dirt Bikes' | 'Electric Balance Bikes' | 'GMX Australian Dirt Bikes' | 'Parts & Upgrades';
+  category: 'Surron' | 'Talaria' | 'Stark Future' | '79Bikes' | 'Yotsuba' | 'Electric Balance Bikes' | 'GMX Australian Dirt Bikes' | 'Parts & Upgrades';
   subcategory: string;
   price: number;
   originalPrice?: number;

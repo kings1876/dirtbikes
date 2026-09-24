@@ -28,7 +28,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'faq-water-mud',
     category: 'Battery & Tech',
     question: 'Are the electric dirt bikes waterproof? Can I ride through creeks and muddy tracks?',
-    answer: 'Yes! Our adult e-moto bikes (Apex 16kW, Storm Pro 72V, Nomad Dual-Sport) carry IP67 submersible ingress protection on the brushless IPM motor, battery enclosure, and sine-wave vector controller. You can blast through rain, mud, wheel-deep river crossings, and power wash your bike after a heavy weekend of trail riding without electrical short risk.'
+    answer: 'Most of our range (including the Surron and Talaria lineups) carries IP65 splash-proof ingress protection on the motor and battery enclosure — built for rain, mud, and creek crossings. IP65 is splash and dust resistant, not fully submersible, so avoid deliberately submerging the bike or direct high-pressure spray into electrical connectors. Check the individual product page for the exact rating on your model.'
   },
   {
     id: 'faq-battery-life',
@@ -46,7 +46,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'faq-street-legal',
     category: 'Orders & Shipping',
     question: 'Are these electric dirt bikes street legal or off-road only?',
-    answer: 'Models like the Nomad 72V Dual-Sport come equipped with DOT/ADR approved high-low beam headlights, turn signals, mirrors, horn, brake lights, and a manufacturer 17-digit VIN plate ready for state highway vehicle registration as an electric motorcycle/moped. Dedicated motocross models (Apex 16kW and Storm Pro 72V) are designed for closed-course tracks, private land, and designated off-highway vehicle (OHV) trail networks.'
+    answer: 'The Surron Ultra Bee Road (ADR L1e) comes equipped with DOT/ADR approved high-low beam headlights, turn signals, mirrors, and a horn — but road registration still depends on your state\'s rules, so confirm compliance with Kanvale before ordering if you need it registered. Every other model in our range (Surron, Talaria, Stark Future, 79Bikes, GMX) is designed for closed-course tracks, private land, and designated off-highway vehicle (OHV) trail networks only.'
   },
   {
     id: 'faq-warranty',

@@ -3,7 +3,6 @@ import {
   Zap,
   Award,
   MapPin,
-  Calendar,
   ShieldCheck,
   Truck,
   Coins,
@@ -20,37 +19,37 @@ interface AboutViewProps {
 
 export const AboutView: React.FC<AboutViewProps> = ({ onExploreShop }) => {
   useSEO({
-    title: 'About Kanvale Dirt Bikes | Founded 2000',
+    title: 'About Kanvale Dirt Bikes | Authorised Australian Dealer',
     description:
-      'Kanvale Dirt Bikes has engineered high-torque electric off-road motorcycles since 2000. Learn our history, milestones, and engineering philosophy.',
+      'Kanvale Dirt Bikes is an authorised Australian retailer of Surron, Talaria, Stark Future, and GMX electric dirt bikes. Learn who we are and what we stand behind.',
     canonicalPath: '/about',
   });
 
   const milestones = [
     {
-      year: '25 May 2000',
-      title: 'Founded in Australia',
-      desc: 'Founded by competitive motocross mechanics in the Australian outback aiming to build the ultimate zero-noise electric dirt bike that would eliminate engine seizures and noise closures.'
+      year: 'Founding',
+      title: 'Started by Riders, for Riders',
+      desc: 'Kanvale was founded to give Australian riders direct, hassle-free access to the electric dirt bikes actually worth riding — instead of chasing grey-market imports with no local support.'
     },
     {
-      year: '2011',
-      title: 'First 72V Brushless Enduro',
-      desc: 'Engineered our first purpose-built 72V IPM mid-drive motor prototype with regenerative electronic braking, conquering steep red-dirt hill climbs without clutching or overheating.'
+      year: 'Dealer Network',
+      title: 'Authorised Surron & Talaria Partner',
+      desc: 'We became an authorised Australian dealer for Surron and Talaria, giving customers manufacturer-backed warranty support instead of parallel-import guesswork.'
     },
     {
-      year: '2018',
-      title: 'Advanced Battery Thermal Architecture',
-      desc: 'Patented our IP67 sealed cell casing using high-drain Samsung 21700 cylindrical cells, providing 1,500+ charge cycles and 30-second rapid hot-swap capabilities.'
+      year: 'Expansion',
+      title: 'Stark Future & GMX Added',
+      desc: 'Extended the range to include the Stark Future VARG for competitive riders and the locally-focused GMX lineup for petrol and budget-electric buyers.'
     },
     {
-      year: '2022',
-      title: 'USA Expansion & Nationwide Freight Network',
-      desc: 'Established American distribution headquarters, deploying nationwide steel-crated carrier delivery to all 50 states and international hubs.'
+      year: 'Logistics',
+      title: 'Nationwide Freight Network',
+      desc: 'Built out steel-crated freight delivery to every address across Australia, so riders outside major cities get the same service as those next door.'
     },
     {
-      year: '2024 - 2026',
-      title: 'Next-Gen 16kW Apex & Youth Series',
-      desc: 'Unveiled the flagship 16kW Apex Hyper Cross delivering 920 Nm wheel torque, alongside our safety-limited youth series and direct 10% crypto payment integration.'
+      year: 'Today',
+      title: 'Curated, Not Everything',
+      desc: 'We deliberately stock a curated lineup across Surron, Talaria, Stark Future, 79Bikes, Yotsuba, and GMX — the models we\'d actually recommend, not every SKU a brand makes.'
     }
   ];
 
@@ -60,23 +59,23 @@ export const AboutView: React.FC<AboutViewProps> = ({ onExploreShop }) => {
       <section className="relative rounded-3xl bg-zinc-950 border border-zinc-800/80 p-8 sm:p-14 overflow-hidden">
         <div className="max-w-3xl relative z-10 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold">
-            <Calendar className="w-3.5 h-3.5" />
-            <span>ESTABLISHED 25 MAY 2000 • AUSTRALIAN HERITAGE</span>
+            <ShieldCheck className="w-3.5 h-3.5" />
+            <span>AUTHORISED AUSTRALIAN DEALER</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight font-sans">
-            Born on the Outback Trails. <br />
-            <span className="text-emerald-400 font-mono">Engineered for the World.</span>
+            We Don't Build These Bikes. <br />
+            <span className="text-emerald-400 font-mono">We Back Them.</span>
           </h1>
 
           <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
-            Kanvale Dirt Bikes was founded on <strong>25 May 2000 in Australia</strong> by a dedicated collective of motocross mechanics and electrical engineers. Frustrated by expanding track closures caused by two-stroke engine noise and the relentless maintenance of gas carburetors, we set out to build something radically superior: <strong>electric dirt bikes with uncompromised torque and zero mechanical headaches</strong>.
+            Kanvale Dirt Bikes is an <strong>authorised Australian retailer</strong> for Surron, Talaria, Stark Future, 79Bikes, and Yotsuba, alongside the locally-focused GMX range. We didn't set out to manufacture electric dirt bikes — we set out to be the dealer that gets them right: genuine stock, real manufacturer warranty support, and a team that actually rides what it sells.
           </p>
 
           <div className="pt-2 flex flex-wrap gap-4 text-xs font-mono text-zinc-300">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-emerald-400" />
-              <span>Founded: Australia • Operations: USA</span>
+              <span>Australian Dealer • Nationwide Delivery</span>
             </div>
             <div className="flex items-center gap-2">
               <Truck className="w-4 h-4 text-emerald-400" />
@@ -124,7 +123,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onExploreShop }) => {
               Zero Weekend Engine Rebuilds
             </h3>
             <p className="text-xs text-zinc-400 leading-relaxed">
-              Forget oil changes, premix fuel mixing, valve clearances, and piston replacements. Our IP67 sealed brushless IPM motors and lithium battery packs require less than 10% of traditional maintenance.
+              Forget oil changes, premix fuel mixing, valve clearances, and piston replacements. The sealed brushless motors and lithium battery packs across our range require a fraction of traditional maintenance.
             </p>
           </div>
 
@@ -149,7 +148,7 @@ export const AboutView: React.FC<AboutViewProps> = ({ onExploreShop }) => {
             OUR TIMELINE
           </span>
           <h2 className="text-2xl sm:text-4xl font-black text-white font-sans uppercase">
-            Over Two Decades of Innovation
+            How We Got Here
           </h2>
         </div>
 

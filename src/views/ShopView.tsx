@@ -69,9 +69,9 @@ export const ShopView: React.FC<ShopViewProps> = ({
   }, [selectedCategory, selectedSubcategory, selectedBadge, sortBy]);
 
   useSEO({
-    title: 'Shop Electric Dirt Bikes | Kanvale Dirt Bikes',
+    title: 'Shop Electric Dirt Bikes | Surron, Talaria, Stark Future & GMX',
     description:
-      'Browse 18 high-performance electric & GMX petrol dirt bikes for adults and kids. Free nationwide shipping, 2-year warranty, and 10% instant crypto discount.',
+      'Browse genuine Surron, Talaria, Stark Future, 79Bikes, Yotsuba, and GMX electric dirt bikes for adults and kids. Free nationwide shipping, 2-year warranty, and 10% instant crypto discount.',
     canonicalPath: '/shop',
   });
 
@@ -146,13 +146,13 @@ export const ShopView: React.FC<ShopViewProps> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6">
         <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold flex items-center gap-1.5">
           <Zap className="w-3.5 h-3.5" />
-          Full Showroom Inventory
+          Authorised Australian Dealer
         </span>
         <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight uppercase mt-1">
           Shop All Electric Dirt Bikes
         </h1>
         <p className="mt-2 text-sm text-zinc-400 max-w-2xl leading-relaxed">
-          {PRODUCTS.length} adult, youth, electric balance bike, and GMX Australian models. Free nationwide shipping, 2-year warranty, and 10% instant crypto discount on every order.
+          {PRODUCTS.length} genuine models from Surron, Talaria, Stark Future, 79Bikes, Yotsuba, and GMX. Free nationwide shipping, 2-year warranty, and 10% instant crypto discount on every order.
         </p>
       </section>
 

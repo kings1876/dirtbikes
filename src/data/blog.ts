@@ -8,7 +8,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Buying Guides',
     date: 'September 12, 2026',
     readTime: '6 min read',
-    author: 'Kanvale Engineering Team',
+    author: 'Kanvale Product Team',
     excerpt: 'Looking for an electric dirt bike for sale in Australia? Discover everything you need to know about state trail registrations in WA (Perth), Victoria (Melbourne), NSW (Sydney), and off-road safety compliance.',
     image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80',
     content: [
@@ -19,7 +19,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: 'electric-vs-gas-dirt-bikes-comparison',
-    title: 'Electric vs. Gas Dirt Bikes: Why 16kW Electric Dirt Bikes for Adults Crush 250cc Four-Strokes',
+    title: 'Electric vs. Gas Dirt Bikes: Why High-Torque Electric Dirt Bikes for Adults Crush 250cc Four-Strokes',
     slug: 'electric-vs-gas-dirt-bikes-comparison',
     category: 'Performance & Tech',
     date: 'August 28, 2026',
@@ -29,7 +29,7 @@ export const BLOG_POSTS: BlogPost[] = [
     image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1200&q=80',
     content: [
       'When riding rocky hill ascents or slippery rock gardens, clutch feathering on a combustion dirt bike is a constant juggling act. One slip of the finger and the engine stalls, sending you backward down the hill.',
-      'On an electric dirt bike like the Apex 16kW or Storm Pro 72V, maximum wheel torque (up to 920 Nm) is on tap at 0 RPM. There is no stalling, no gear changing, and no heat buildup between your shins.',
+      'On an electric dirt bike like the Surron Ultra Bee or Talaria Komodo, maximum wheel torque is on tap at 0 RPM. There is no stalling, no gear changing, and no heat buildup between your shins.',
       'Add in the total elimination of air filter cleanings, piston rebuilds, and premix fuel mixing, and you get pure riding enjoyment without spending Sunday afternoon cleaning carburetors.'
     ]
   },
@@ -45,7 +45,7 @@ export const BLOG_POSTS: BlogPost[] = [
     image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80',
     content: [
       'Introducing young kids to two-wheel motorsport used to involve wrestling heavy 50cc gas bikes with hot exhaust pipes that posed severe burn hazards. Children’s electric dirt bikes have revolutionized how youth riders learn balance, braking, and throttle control.',
-      'The Micro Ripper 36V (for ages 4-8) and Volt Junior 48V (for ages 8-14) feature parental key-locked 3-speed limiters. You can restrict speed down to a gentle walking pace (10 km/h) while your child learns hand coordination, and unlock higher performance modes as their confidence develops.',
+      'The Yotsuba Moto 12 (for ages 2-6) and Yotsuba Moto 16 (for ages 6-12) feature key-locked 3-speed limiters. You can restrict speed down to a gentle walking pace while your child learns hand coordination, and unlock higher performance modes as their confidence develops.',
       'Best of all, you can ride in your backyard or suburban neighborhood without disturbing neighbors, allowing daily practice without having to load a trailer and drive hours to remote dirt tracks.'
     ]
   },
