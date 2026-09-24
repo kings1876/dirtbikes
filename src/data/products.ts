@@ -336,6 +336,710 @@ export const PRODUCTS: Product[] = [
     riderSuitability: 'Overlanders, outback adventurers, and long-range trail tourers.'
   },
   {
+    id: 'summit-68v-trail-ranger',
+    name: 'Summit 68V Trail Ranger',
+    slug: 'summit-68v-trail-ranger',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'Trail & Enduro',
+    price: 4599,
+    badge: 'New',
+    description: 'A balanced, confidence-inspiring trail companion built for riders who spend more time climbing switchbacks than racing motocross. Smooth power delivery and a forgiving chassis make technical singletrack feel manageable.',
+    features: [
+      '68V IPM Brushless Mid-Drive Motor with Linear Throttle Mapping',
+      'Adjustable Regenerative Braking (3 Levels)',
+      'Skid-Plate Protected Battery Bay',
+      'Tool-less Quick-Release Rear Wheel'
+    ],
+    specs: {
+      peakPower: '8.0 kW (10.7 HP)',
+      topSpeed: '100 km/h (62 mph)',
+      batteryWh: '68V 40Ah (2,720 Wh)',
+      range: '100 km (62 miles) @ trail pace',
+      chargeTime: '3 hours (Standard Charger)',
+      weight: '62 kg (137 lbs)',
+      suspension: 'Adjustable 200mm Coil-Spring Forks & Rear Monoshock',
+      brakes: 'Hydraulic Dual-Piston Disc, Front & Rear',
+      frame: 'Aircraft-Grade Aluminum Alloy',
+      maxLoad: '120 kg (265 lbs)',
+      waterproof: 'IP66 Splash & Dust Resistant'
+    },
+    image: 'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Weekend trail riders and intermediate off-roaders who want predictable, easy-to-manage power.'
+  },
+  {
+    id: 'canyon-runner-65v-all-terrain',
+    name: 'Canyon Runner 65V All-Terrain',
+    slug: 'canyon-runner-65v-all-terrain',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'Trail & Enduro',
+    price: 4199,
+    originalPrice: 4599,
+    badge: 'Best Value',
+    description: 'An accessible entry point into high-torque electric trail riding without cutting corners on build quality. Light, nimble, and easy to throw over logs and rock gardens.',
+    features: [
+      'Lightweight 65V Radial-Flux Motor',
+      'Pre-Load Adjustable Suspension Front & Rear',
+      'Sealed Chain-Free Belt Drive (Zero Lube Maintenance)',
+      'LED Trail Headlight & Tail Light Standard'
+    ],
+    specs: {
+      peakPower: '7.5 kW (10.1 HP)',
+      topSpeed: '90 km/h (56 mph)',
+      batteryWh: '65V 35Ah (2,275 Wh)',
+      range: '95 km (59 miles) @ trail pace',
+      chargeTime: '2.8 hours (Standard Charger)',
+      weight: '60 kg (132 lbs)',
+      suspension: 'Preload-Adjustable 190mm Forks & Rear Shock',
+      brakes: 'Hydraulic Single-Piston Disc, Front & Rear',
+      frame: 'Welded Aluminum Alloy Backbone',
+      maxLoad: '115 kg (254 lbs)',
+      waterproof: 'IP65 Splash Proof'
+    },
+    image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'First-time electric dirt bike buyers and budget-conscious trail riders.'
+  },
+  {
+    id: 'ridge-hopper-70v-forest-enduro',
+    name: 'Ridge Hopper 70V Forest Enduro',
+    slug: 'ridge-hopper-70v-forest-enduro',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'Trail & Enduro',
+    price: 4799,
+    badge: 'Popular',
+    description: 'Purpose-built for dense forest singletrack and rocky ridgelines. A stiffer chassis and taller suspension travel soak up roots and ruts other trail bikes struggle with.',
+    features: [
+      '70V High-Torque Motor with Traction Control',
+      '220mm Long-Travel Suspension Package',
+      'Reinforced Radiator-less Sealed Motor Casing',
+      'Handlebar-Mounted Ride Mode Switch (Eco/Trail/Sport)'
+    ],
+    specs: {
+      peakPower: '9.0 kW (12.1 HP)',
+      topSpeed: '98 km/h (61 mph)',
+      batteryWh: '70V 42Ah (2,940 Wh)',
+      range: '105 km (65 miles) @ trail pace',
+      chargeTime: '3.2 hours (Standard Charger)',
+      weight: '64 kg (141 lbs)',
+      suspension: 'Fully Adjustable 220mm Inverted Forks & Monoshock',
+      brakes: 'Hydraulic Dual-Piston Disc, Front & Rear',
+      frame: 'CNC-Machined Aluminum Twin-Spar',
+      maxLoad: '125 kg (276 lbs)',
+      waterproof: 'IP66 Splash & Dust Resistant'
+    },
+    image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Experienced trail riders tackling technical forest and mountain terrain.'
+  },
+  {
+    id: 'backwoods-62v-singletrack-pro',
+    name: 'Backwoods 62V Singletrack Pro',
+    slug: 'backwoods-62v-singletrack-pro',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'Trail & Enduro',
+    price: 3899,
+    description: 'A compact, flickable singletrack machine that prioritizes agility over outright power. Ideal for tight, technical trails where a lighter bike is a faster bike.',
+    badge: 'none',
+    features: [
+      'Compact 62V Mid-Drive Motor with Instant Torque',
+      'Narrow Ergonomic Chassis for Tight Trail Clearance',
+      'Low 780mm Seat Height for Confident Foot-Down',
+      'Puncture-Resistant Trail Tire Package'
+    ],
+    specs: {
+      peakPower: '6.5 kW (8.7 HP)',
+      topSpeed: '82 km/h (51 mph)',
+      batteryWh: '62V 32Ah (1,984 Wh)',
+      range: '88 km (55 miles) @ trail pace',
+      chargeTime: '2.5 hours (Standard Charger)',
+      weight: '58 kg (128 lbs)',
+      suspension: 'Coil-Spring 180mm Forks & Rear Shock',
+      brakes: 'Hydraulic Single-Piston Disc, Front & Rear',
+      frame: 'Lightweight Aluminum Alloy',
+      maxLoad: '110 kg (243 lbs)',
+      waterproof: 'IP65 Splash Proof'
+    },
+    image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Smaller riders and technical singletrack specialists who value agility.'
+  },
+  {
+    id: 'podium-85v-race-edition',
+    name: 'Podium 85V Race Edition',
+    slug: 'podium-85v-race-edition',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'Motocross & Competition',
+    price: 8299,
+    badge: 'Premium',
+    description: 'A factory-spec race machine built to podium. Aggressive power delivery, works-level suspension, and a chassis tuned by competitive motocross racers for holeshot-winning starts.',
+    features: [
+      '85V Race-Tuned Motor with Launch Control',
+      'Works-Level Fully Adjustable Suspension (Compression, Rebound, Preload)',
+      'Carbon-Reinforced Airbox and Subframe',
+      'Quick-Swap Battery for Pit-Lane Turnarounds'
+    ],
+    specs: {
+      peakPower: '20.0 kW (26.8 HP)',
+      topSpeed: '118 km/h (73 mph)',
+      batteryWh: '85V 45Ah (3,825 Wh)',
+      range: '90 km (56 miles) or 35+ min hard moto laps',
+      chargeTime: '2.5 hours (Fast Charger included)',
+      weight: '74 kg (163 lbs)',
+      suspension: 'Works-Level Fully Adjustable 300mm Inverted Forks',
+      brakes: 'Oversized Hydraulic 4-Piston Ceramic Disc',
+      frame: 'Aviation-Grade Forged Aluminum Alloy',
+      maxLoad: '130 kg (287 lbs)',
+      waterproof: 'IP67 Submersible Waterproof'
+    },
+    image: 'https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Competitive amateur and semi-pro motocross racers.'
+  },
+  {
+    id: 'holeshot-90v-pro-circuit',
+    name: 'Holeshot 90V Pro Circuit',
+    slug: 'holeshot-90v-pro-circuit',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'Motocross & Competition',
+    price: 8999,
+    badge: 'New',
+    description: 'Our highest-output competition motor to date, built for riders chasing lap records on closed circuits. Explosive corner-exit acceleration meets stable high-speed handling.',
+    features: [
+      '90V Peak-Output Race Motor with 5 Custom Power Curves',
+      'Titanium Footpeg and Lever Package',
+      'Full Carbon Fiber Body Panels',
+      'Data-Logging App with Lap Timer Integration'
+    ],
+    specs: {
+      peakPower: '23.0 kW (30.8 HP)',
+      topSpeed: '122 km/h (76 mph)',
+      batteryWh: '90V 46Ah (4,140 Wh)',
+      range: '85 km (53 miles) or 30+ min hard moto laps',
+      chargeTime: '2.5 hours (Fast Charger included)',
+      weight: '76 kg (168 lbs)',
+      suspension: 'Works-Level Fully Adjustable 310mm Inverted Forks',
+      brakes: 'Oversized Hydraulic 4-Piston Ceramic Disc',
+      frame: 'Aviation-Grade Forged Aluminum Alloy',
+      maxLoad: '130 kg (287 lbs)',
+      waterproof: 'IP67 Submersible Waterproof'
+    },
+    image: 'https://images.unsplash.com/photo-1509744645300-a2098b11871a?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1509744645300-a2098b11871a?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Pro-level racers seeking the highest available competition output.'
+  },
+  {
+    id: 'moto-king-88v-championship',
+    name: 'Moto King 88V Championship',
+    slug: 'moto-king-88v-championship',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'Motocross & Competition',
+    price: 8599,
+    badge: 'Popular',
+    description: 'A championship-proven platform that balances raw power with rideability. The bike of choice for riders moving up from 450cc four-strokes without sacrificing lap times.',
+    features: [
+      '88V Championship-Tuned Motor with Traction Control',
+      'Fully Adjustable Works-Level Suspension',
+      'Lightweight Magnesium Engine Covers',
+      'Quick-Release Number Plate Mounts'
+    ],
+    specs: {
+      peakPower: '21.0 kW (28.2 HP)',
+      topSpeed: '120 km/h (75 mph)',
+      batteryWh: '88V 44Ah (3,872 Wh)',
+      range: '88 km (55 miles) or 32+ min hard moto laps',
+      chargeTime: '2.5 hours (Fast Charger included)',
+      weight: '75 kg (165 lbs)',
+      suspension: 'Works-Level Fully Adjustable 305mm Inverted Forks',
+      brakes: 'Oversized Hydraulic 4-Piston Ceramic Disc',
+      frame: 'Aviation-Grade Forged Aluminum Alloy',
+      maxLoad: '130 kg (287 lbs)',
+      waterproof: 'IP67 Submersible Waterproof'
+    },
+    image: 'https://images.unsplash.com/photo-1571932646633-8758b29c9b1f?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1571932646633-8758b29c9b1f?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Advanced riders transitioning from 450cc four-stroke motocross bikes.'
+  },
+  {
+    id: 'gatekeeper-82v-track-dominator',
+    name: 'Gatekeeper 82V Track Dominator',
+    slug: 'gatekeeper-82v-track-dominator',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'Motocross & Competition',
+    price: 7999,
+    originalPrice: 8699,
+    badge: 'Sale',
+    description: 'Race-ready performance at a more accessible price point. All the competition fundamentals — aggressive power, works-level suspension, ceramic brakes — without the flagship price tag.',
+    features: [
+      '82V Race-Tuned Motor with Launch Control',
+      'Fully Adjustable Works-Level Suspension',
+      'Reinforced Composite Subframe',
+      'Quick-Swap Battery for Pit-Lane Turnarounds'
+    ],
+    specs: {
+      peakPower: '19.0 kW (25.5 HP)',
+      topSpeed: '115 km/h (71 mph)',
+      batteryWh: '82V 43Ah (3,526 Wh)',
+      range: '92 km (57 miles) or 34+ min hard moto laps',
+      chargeTime: '2.5 hours (Fast Charger included)',
+      weight: '73 kg (161 lbs)',
+      suspension: 'Works-Level Fully Adjustable 295mm Inverted Forks',
+      brakes: 'Oversized Hydraulic 4-Piston Ceramic Disc',
+      frame: 'Aviation-Grade Forged Aluminum Alloy',
+      maxLoad: '128 kg (282 lbs)',
+      waterproof: 'IP67 Submersible Waterproof'
+    },
+    image: 'https://images.unsplash.com/photo-1558980394-4c7c9299fe96?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1558980394-4c7c9299fe96?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Club-level racers wanting competition performance on a tighter budget.'
+  },
+  {
+    id: 'velocity-95v-hyper-sport',
+    name: 'Velocity 95V Hyper Sport',
+    slug: 'velocity-95v-hyper-sport',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'High-Performance Hyper',
+    price: 9899,
+    badge: 'Premium',
+    description: 'Engineered for riders who want hypercar-level acceleration in a dirt bike chassis. Instantaneous torque delivery makes 0-60 km/h feel like blinking.',
+    features: [
+      '95V Peak-Output Hyper Motor with 5 Custom Ride Modes',
+      'Dual-Chamber Fully Adjustable Inverted Forks',
+      'Regenerative Braking with Adjustable Engine Braking Feel',
+      'Full-Color TFT Dash with Ride Telemetry'
+    ],
+    specs: {
+      peakPower: '25.0 kW (33.5 HP)',
+      topSpeed: '135 km/h (84 mph)',
+      batteryWh: '95V 48Ah (4,560 Wh)',
+      range: '95 km (59 miles) @ trail pace',
+      chargeTime: '2.8 hours (Fast Charger included)',
+      weight: '78 kg (172 lbs)',
+      suspension: 'Dual-Chamber Fully Adjustable 300mm Inverted Forks',
+      brakes: 'Hydraulic 4-Piston Ceramic Disc',
+      frame: 'Aviation-Grade Forged Aluminum Alloy',
+      maxLoad: '135 kg (297 lbs)',
+      waterproof: 'IP67 Submersible Waterproof'
+    },
+    image: 'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Thrill-seeking riders chasing the fastest acceleration in the lineup.'
+  },
+  {
+    id: 'overdrive-100v-ultra',
+    name: 'Overdrive 100V Ultra',
+    slug: 'overdrive-100v-ultra',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'High-Performance Hyper',
+    price: 10999,
+    badge: 'New',
+    description: 'The flagship of the entire Kanvale lineup. A 100V powertrain unlocks acceleration and top speed figures that rival full-size internal combustion superbikes, wrapped in an off-road-capable chassis.',
+    features: [
+      '100V Flagship Hyper Motor with Smartphone Power Tuning',
+      'Carbon-Sleeve Motor Housing for Maximum Heat Dissipation',
+      'Dual-Chamber Fully Adjustable Inverted Forks',
+      'Launch Control with Wheelie Mitigation'
+    ],
+    specs: {
+      peakPower: '28.0 kW (37.5 HP)',
+      topSpeed: '140 km/h (87 mph)',
+      batteryWh: '100V 50Ah (5,000 Wh)',
+      range: '100 km (62 miles) @ trail pace',
+      chargeTime: '3 hours (Fast Charger included)',
+      weight: '80 kg (176 lbs)',
+      suspension: 'Dual-Chamber Fully Adjustable 310mm Inverted Forks',
+      brakes: 'Hydraulic 4-Piston Ceramic Disc',
+      frame: 'Aviation-Grade Forged Aluminum Alloy',
+      maxLoad: '138 kg (304 lbs)',
+      waterproof: 'IP67 Submersible Waterproof'
+    },
+    image: 'https://images.unsplash.com/photo-1558981420-87aa9dad1c89?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1558981420-87aa9dad1c89?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Experienced riders seeking the single most powerful bike in the Kanvale range.'
+  },
+  {
+    id: 'maverick-92v-extreme',
+    name: 'Maverick 92V Extreme',
+    slug: 'maverick-92v-extreme',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'High-Performance Hyper',
+    price: 9299,
+    badge: 'Popular',
+    description: 'Aggressive, unapologetic, and built for riders who never lift off the throttle early. The Maverick trades comfort for pure, unfiltered performance.',
+    features: [
+      '92V High-Output Motor with Aggressive Throttle Curve',
+      'Fully Adjustable Inverted Forks with Remote Reservoir',
+      'Lightweight Forged Wheels',
+      'Adjustable Regenerative Braking (5 Levels)'
+    ],
+    specs: {
+      peakPower: '24.0 kW (32.2 HP)',
+      topSpeed: '128 km/h (80 mph)',
+      batteryWh: '92V 47Ah (4,324 Wh)',
+      range: '92 km (57 miles) @ trail pace',
+      chargeTime: '2.8 hours (Fast Charger included)',
+      weight: '77 kg (170 lbs)',
+      suspension: 'Fully Adjustable 300mm Inverted Forks with Remote Reservoir',
+      brakes: 'Hydraulic 4-Piston Ceramic Disc',
+      frame: 'Aviation-Grade Forged Aluminum Alloy',
+      maxLoad: '134 kg (295 lbs)',
+      waterproof: 'IP67 Submersible Waterproof'
+    },
+    image: 'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Aggressive riders who prioritize raw performance over comfort.'
+  },
+  {
+    id: 'nitro-98v-speed-demon',
+    name: 'Nitro 98V Speed Demon',
+    slug: 'nitro-98v-speed-demon',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'High-Performance Hyper',
+    price: 10499,
+    description: 'Sitting just below our flagship Overdrive, the Nitro delivers near-flagship acceleration and top speed at a sharper price point for serious performance riders.',
+    badge: 'none',
+    features: [
+      '98V Near-Flagship Hyper Motor with 5 Custom Ride Modes',
+      'Dual-Chamber Fully Adjustable Inverted Forks',
+      'Carbon-Sleeve Motor Housing',
+      'Full-Color TFT Dash with Ride Telemetry'
+    ],
+    specs: {
+      peakPower: '26.5 kW (35.5 HP)',
+      topSpeed: '138 km/h (86 mph)',
+      batteryWh: '98V 49Ah (4,802 Wh)',
+      range: '98 km (61 miles) @ trail pace',
+      chargeTime: '3 hours (Fast Charger included)',
+      weight: '79 kg (174 lbs)',
+      suspension: 'Dual-Chamber Fully Adjustable 305mm Inverted Forks',
+      brakes: 'Hydraulic 4-Piston Ceramic Disc',
+      frame: 'Aviation-Grade Forged Aluminum Alloy',
+      maxLoad: '137 kg (302 lbs)',
+      waterproof: 'IP67 Submersible Waterproof'
+    },
+    image: 'https://images.unsplash.com/photo-1558981852-426c6c22a060?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1558981852-426c6c22a060?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Performance riders who want near-flagship power at a sharper price.'
+  },
+  {
+    id: 'metro-55v-city-cruiser',
+    name: 'Metro 55V City Cruiser',
+    slug: 'metro-55v-city-cruiser',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'Urban / Trail Commuter',
+    price: 3299,
+    badge: 'Best Value',
+    description: 'A street-registrable commuter built for riders who want one bike for the weekday commute and the weekend trail. Comfortable ergonomics meet dirt-capable ground clearance.',
+    features: [
+      'DOT & ADR Compliant Lighting Package',
+      '55V Efficient Mid-Drive Motor with Regenerative Braking',
+      'Comfort Commuter Seat with Passenger Footpegs',
+      'Under-Seat Lockable Storage Compartment'
+    ],
+    specs: {
+      peakPower: '5.0 kW (6.7 HP)',
+      topSpeed: '75 km/h (47 mph)',
+      batteryWh: '55V 38Ah (2,090 Wh)',
+      range: '110 km (68 miles) City / 70 km (43 miles) Trail',
+      chargeTime: '2.6 hours',
+      weight: '55 kg (121 lbs)',
+      suspension: 'Comfort-Tuned 180mm Dual Forks & Monoshock',
+      brakes: 'Hydraulic Dual-Piston with Regenerative Electronic Braking',
+      frame: 'Aviation Aluminum Twin-Spar Geometry',
+      maxLoad: '140 kg (309 lbs)',
+      waterproof: 'IP66 Splash & Dust Resistant'
+    },
+    image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Daily commuters who want a single bike for city streets and weekend trails.'
+  },
+  {
+    id: 'commuter-pro-58v-daily-rider',
+    name: 'Commuter Pro 58V Daily Rider',
+    slug: 'commuter-pro-58v-daily-rider',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'Urban / Trail Commuter',
+    price: 3599,
+    badge: 'Popular',
+    description: 'Our most popular commuter model, tuned for the daily grind. Extra range and a more supportive seat make longer commutes comfortable without giving up trail capability.',
+    features: [
+      'DOT & ADR Compliant Lighting Package',
+      '58V Efficient Mid-Drive Motor with Regenerative Braking',
+      'Extended-Range Battery Pack',
+      'Built-in USB-C Quick Charge Port for Phone/GPS Navigation'
+    ],
+    specs: {
+      peakPower: '5.5 kW (7.4 HP)',
+      topSpeed: '78 km/h (48 mph)',
+      batteryWh: '58V 40Ah (2,320 Wh)',
+      range: '115 km (71 miles) City / 74 km (46 miles) Trail',
+      chargeTime: '2.8 hours',
+      weight: '57 kg (126 lbs)',
+      suspension: 'Comfort-Tuned 190mm Dual Forks & Monoshock',
+      brakes: 'Hydraulic Dual-Piston with Regenerative Electronic Braking',
+      frame: 'Aviation Aluminum Twin-Spar Geometry',
+      maxLoad: '145 kg (320 lbs)',
+      waterproof: 'IP66 Splash & Dust Resistant'
+    },
+    image: 'https://images.unsplash.com/photo-1547025603-ef90c50b64d0?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1547025603-ef90c50b64d0?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Riders with longer daily commutes who want extra range and comfort.'
+  },
+  {
+    id: 'street-hawk-60v-urban-explorer',
+    name: 'Street Hawk 60V Urban Explorer',
+    slug: 'street-hawk-60v-urban-explorer',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'Urban / Trail Commuter',
+    price: 3799,
+    badge: 'New',
+    description: 'A sharper, sportier take on the commuter formula. More power and a firmer suspension setup make the Street Hawk equally at home weaving through traffic or hitting a fire road after work.',
+    features: [
+      'DOT & ADR Compliant Lighting Package',
+      '60V High-Response Mid-Drive Motor',
+      'Sport-Tuned Adjustable Suspension',
+      'LED Projector Headlight with Daytime Running Light'
+    ],
+    specs: {
+      peakPower: '6.0 kW (8.0 HP)',
+      topSpeed: '82 km/h (51 mph)',
+      batteryWh: '60V 40Ah (2,400 Wh)',
+      range: '118 km (73 miles) City / 76 km (47 miles) Trail',
+      chargeTime: '2.9 hours',
+      weight: '58 kg (128 lbs)',
+      suspension: 'Sport-Tuned Adjustable 195mm Dual Forks & Monoshock',
+      brakes: 'Hydraulic Dual-Piston with Regenerative Electronic Braking',
+      frame: 'Aviation Aluminum Twin-Spar Geometry',
+      maxLoad: '145 kg (320 lbs)',
+      waterproof: 'IP66 Splash & Dust Resistant'
+    },
+    image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Commuters who want sportier performance without losing trail capability.'
+  },
+  {
+    id: 'downtown-52v-eco-commuter',
+    name: 'Downtown 52V Eco Commuter',
+    slug: 'downtown-52v-eco-commuter',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'Urban / Trail Commuter',
+    price: 2999,
+    originalPrice: 3399,
+    badge: 'Sale',
+    description: 'Our most affordable street-legal commuter, built for riders who want low running costs and effortless city maneuverability without sacrificing off-road capability for the occasional trail detour.',
+    features: [
+      'DOT & ADR Compliant Lighting Package',
+      '52V Efficient Mid-Drive Motor',
+      'Ultra-Compact, Lightweight Chassis',
+      'Regenerative Braking for Extended City Range'
+    ],
+    specs: {
+      peakPower: '4.5 kW (6.0 HP)',
+      topSpeed: '70 km/h (43 mph)',
+      batteryWh: '52V 35Ah (1,820 Wh)',
+      range: '105 km (65 miles) City / 65 km (40 miles) Trail',
+      chargeTime: '2.3 hours',
+      weight: '53 kg (117 lbs)',
+      suspension: 'Comfort-Tuned 170mm Dual Forks & Monoshock',
+      brakes: 'Hydraulic Dual-Piston with Regenerative Electronic Braking',
+      frame: 'Aviation Aluminum Twin-Spar Geometry',
+      maxLoad: '135 kg (298 lbs)',
+      waterproof: 'IP65 Splash Proof'
+    },
+    image: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Budget-conscious commuters prioritizing low running costs and easy handling.'
+  },
+  {
+    id: 'voyager-75v-expedition',
+    name: 'Voyager 75V Expedition',
+    slug: 'voyager-75v-expedition',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'Adventure Dual Sport',
+    price: 5999,
+    badge: 'Popular',
+    description: 'Built for multi-day expeditions far from the nearest charger. A dual-battery-ready platform and rugged touring ergonomics make long-distance overlanding genuinely comfortable.',
+    features: [
+      'Dual Battery Bay System (up to 6.0 kWh capacity)',
+      'Touring Windscreen and Adjustable Handguards',
+      'Integrated Modular Rear Cargo Rack (30 kg payload)',
+      'Over-the-air firmware updates with trail map sync'
+    ],
+    specs: {
+      peakPower: '11.0 kW (14.7 HP)',
+      topSpeed: '92 km/h (57 mph)',
+      batteryWh: '75V 44Ah Primary (Supports secondary dual pack)',
+      range: '130 km (single pack) / 230 km (dual pack)',
+      chargeTime: '3.4 hours',
+      weight: '70 kg (154 lbs)',
+      suspension: 'Heavy-Spring Tourer 235mm Long-Travel Suspension',
+      brakes: 'Oversized 260mm Floating Hydraulic Rotors',
+      frame: 'Reinforced Box-Section Steel & Cast Aluminum',
+      maxLoad: '155 kg (342 lbs)',
+      waterproof: 'IP67 Outback Rated'
+    },
+    image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Multi-day expedition riders and remote overlanders.'
+  },
+  {
+    id: 'wayfarer-78v-cross-country',
+    name: 'Wayfarer 78V Cross-Country',
+    slug: 'wayfarer-78v-cross-country',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'Adventure Dual Sport',
+    price: 6299,
+    badge: 'New',
+    description: 'A cross-country tourer designed to eat up hundreds of kilometers of mixed terrain in a single day, from sealed highway stretches to unmaintained outback tracks.',
+    features: [
+      'Dual Battery Bay System (up to 6.2 kWh capacity)',
+      'Adjustable Touring Ergonomics (Seat, Bars, Pegs)',
+      'Reinforced Crash Cage with Integrated Pannier Mounts',
+      'Over-the-air firmware updates with trail map sync'
+    ],
+    specs: {
+      peakPower: '12.0 kW (16.1 HP)',
+      topSpeed: '95 km/h (59 mph)',
+      batteryWh: '78V 45Ah Primary (Supports secondary dual pack)',
+      range: '135 km (single pack) / 235 km (dual pack)',
+      chargeTime: '3.5 hours',
+      weight: '71 kg (157 lbs)',
+      suspension: 'Heavy-Spring Tourer 240mm Long-Travel Suspension',
+      brakes: 'Oversized 260mm Floating Hydraulic Rotors',
+      frame: 'Reinforced Box-Section Steel & Cast Aluminum',
+      maxLoad: '158 kg (348 lbs)',
+      waterproof: 'IP67 Outback Rated'
+    },
+    image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Cross-country tourers who mix highway stretches with unmaintained outback tracks.'
+  },
+  {
+    id: 'horizon-80v-long-haul',
+    name: 'Horizon 80V Long Haul',
+    slug: 'horizon-80v-long-haul',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'Adventure Dual Sport',
+    price: 6499,
+    badge: 'Premium',
+    description: 'The longest-range dual-sport in the Kanvale lineup, built for riders who measure trips in days, not hours. Maximum dual-pack range with premium touring comfort.',
+    features: [
+      'Dual Battery Bay System (up to 6.8 kWh capacity)',
+      'Premium Touring Seat with Adjustable Lumbar Support',
+      'Integrated Modular Rear Cargo Rack (40 kg payload)',
+      'Over-the-air firmware updates with trail map sync'
+    ],
+    specs: {
+      peakPower: '12.5 kW (16.8 HP)',
+      topSpeed: '98 km/h (61 mph)',
+      batteryWh: '80V 46Ah Primary (Supports secondary dual pack)',
+      range: '140 km (single pack) / 240 km (dual pack)',
+      chargeTime: '3.6 hours',
+      weight: '72 kg (159 lbs)',
+      suspension: 'Heavy-Spring Tourer 245mm Long-Travel Suspension',
+      brakes: 'Oversized 260mm Floating Hydraulic Rotors',
+      frame: 'Reinforced Box-Section Steel & Cast Aluminum',
+      maxLoad: '160 kg (352 lbs)',
+      waterproof: 'IP67 Outback Rated'
+    },
+    image: 'https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Long-haul tourers prioritizing maximum range and premium comfort.'
+  },
+  {
+    id: 'pathfinder-76v-overland',
+    name: 'Pathfinder 76V Overland',
+    slug: 'pathfinder-76v-overland',
+    category: 'Adult Electric Dirt Bikes',
+    subcategory: 'Adventure Dual Sport',
+    price: 5799,
+    originalPrice: 6199,
+    badge: 'Best Value',
+    description: 'A capable, well-equipped overlander at a sharper price point than the flagship Horizon. Everything a weekend overlander needs without paying for range most riders will never use.',
+    features: [
+      'Dual Battery Bay System (up to 5.8 kWh capacity)',
+      'Reinforced Crash Cage with Integrated Pannier Mounts',
+      'Desert-proof air filtration and sealed controller housing',
+      'Over-the-air firmware updates with trail map sync'
+    ],
+    specs: {
+      peakPower: '11.5 kW (15.4 HP)',
+      topSpeed: '93 km/h (58 mph)',
+      batteryWh: '76V 43Ah Primary (Supports secondary dual pack)',
+      range: '128 km (single pack) / 225 km (dual pack)',
+      chargeTime: '3.3 hours',
+      weight: '69 kg (152 lbs)',
+      suspension: 'Heavy-Spring Tourer 230mm Long-Travel Suspension',
+      brakes: 'Oversized 260mm Floating Hydraulic Rotors',
+      frame: 'Reinforced Box-Section Steel & Cast Aluminum',
+      maxLoad: '152 kg (335 lbs)',
+      waterproof: 'IP67 Outback Rated'
+    },
+    image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Weekend overlanders who want solid range without the flagship price tag.'
+  },
+  {
     id: 'rapid-supercharger-15a-72v-80v',
     name: 'Rapid Supercharger 15A (72V/80V Smart Charger)',
     slug: 'rapid-supercharger-15a-72v-80v',
