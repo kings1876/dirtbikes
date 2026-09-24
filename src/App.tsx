@@ -162,6 +162,7 @@ export default function App() {
                   navigate('/shop');
                   setShopCategory('GMX Australian Dirt Bikes');
                 }}
+                onSelectCategory={setShopCategory}
               />
             }
           />

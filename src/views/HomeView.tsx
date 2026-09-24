@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from '../types';
-import { PRODUCTS } from '../data/products';
+import { CATEGORIES, PRODUCTS } from '../data/products';
+import { BLOG_POSTS } from '../data/blog';
+import { FAQ_ITEMS } from '../data/faq';
 import { ProductCard } from '../components/ProductCard';
 import { useSEO, SITE_URL } from '../hooks/useSEO';
 import {
@@ -11,18 +13,63 @@ import {
   Sparkles,
   ArrowRight,
   ShieldCheck,
-  BookOpen,
-  MessageCircleQuestion,
+  Users,
+  Route,
+  Wrench,
+  Calendar,
+  Clock,
+  HelpCircle,
+  Cpu,
+  Award,
 } from 'lucide-react';
 
 interface HomeViewProps {
   onSelectProduct: (product: Product) => void;
   onAddToCart: (product: Product) => void;
   onSelectGMX: () => void;
+  onSelectCategory: (category: string) => void;
 }
 
-export const HomeView: React.FC<HomeViewProps> = ({ onSelectProduct, onAddToCart, onSelectGMX }) => {
+const CATEGORY_ICONS: Record<string, React.ElementType> = {
+  'Adult Electric Dirt Bikes': Zap,
+  'Youth & Childrens E-Dirt Bikes': Users,
+  'Dual Sport & Street-Legal': Route,
+  'GMX Australian Dirt Bikes': ShieldCheck,
+  'Parts & Upgrades': Wrench,
+};
+
+const ENGINEERING_BENCHMARKS = [
+  {
+    icon: Calendar,
+    title: 'Engineering Since 2000',
+    description: 'A quarter-century of purpose-built electric off-road engineering, refined through real trail testing.',
+  },
+  {
+    icon: Zap,
+    title: 'High-Torque 60V–80V Platforms',
+    description: 'Zero-lag brushless motors delivering instant wheel torque without the noise or maintenance of a two-stroke.',
+  },
+  {
+    icon: ShieldCheck,
+    title: '2-Year Factory Warranty',
+    description: 'Full frame, motor, controller, and lithium pack coverage on every bike we ship — no fine print.',
+  },
+  {
+    icon: Truck,
+    title: 'Free Nationwide Freight',
+    description: 'Steel-crated delivery to every address across Australia and the USA, plus a 10% instant crypto discount.',
+  },
+];
+
+export const HomeView: React.FC<HomeViewProps> = ({
+  onSelectProduct,
+  onAddToCart,
+  onSelectGMX,
+  onSelectCategory,
+}) => {
   const featuredProducts = PRODUCTS.filter((p) => p.badge === 'Popular').slice(0, 6);
+  const latestPosts = BLOG_POSTS.slice(0, 3);
+  const previewFaqs = FAQ_ITEMS.slice(0, 6);
 
   const organizationJsonLd = {
     '@context': 'https://schema.org',
@@ -128,6 +175,71 @@ export const HomeView: React.FC<HomeViewProps> = ({ onSelectProduct, onAddToCart
         </div>
       </section>
 
+      {/* Shop By Category */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold">
+            Engineered Lineup
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black text-white">Shop By Category</h2>
+          <p className="text-sm text-zinc-400 leading-relaxed">
+            Every department in one place — adult hyper machines, youth e-motos, street-legal dual-sports, the official GMX range, and the parts that back them up.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {CATEGORIES.map((cat) => {
+            const Icon = CATEGORY_ICONS[cat.name] || Zap;
+            const count = PRODUCTS.filter((p) => p.category === cat.name).length;
+            const isGMX = cat.name === 'GMX Australian Dirt Bikes';
+            return (
+              <Link
+                key={cat.name}
+                to="/shop"
+                onClick={() => onSelectCategory(cat.name)}
+                className={`p-5 rounded-2xl border transition-all group flex flex-col ${
+                  isGMX
+                    ? 'bg-amber-950/25 border-amber-500/40 hover:border-amber-400'
+                    : 'bg-zinc-900/60 border-zinc-800/80 hover:border-emerald-500/40'
+                }`}
+              >
+                <div className="flex items-start justify-between mb-3">
+                  <div
+                    className={`w-11 h-11 rounded-xl flex items-center justify-center ${
+                      isGMX ? 'bg-amber-500/10 border border-amber-500/30' : 'bg-emerald-500/10 border border-emerald-500/20'
+                    }`}
+                  >
+                    <Icon className={`w-5 h-5 ${isGMX ? 'text-amber-400' : 'text-emerald-400'}`} />
+                  </div>
+                  <span
+                    className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded ${
+                      isGMX ? 'bg-amber-500 text-black' : 'bg-zinc-800 text-zinc-300'
+                    }`}
+                  >
+                    {count} Models
+                  </span>
+                </div>
+
+                <h3 className={`text-sm font-bold mb-1.5 ${isGMX ? 'text-amber-300' : 'text-white'}`}>
+                  {isGMX ? '🇦🇺 ' : ''}
+                  {cat.name}
+                </h3>
+                <p className="text-xs text-zinc-400 leading-relaxed flex-1">{cat.description}</p>
+
+                <span
+                  className={`mt-4 inline-flex items-center gap-1.5 text-xs font-mono font-bold ${
+                    isGMX ? 'text-amber-400 group-hover:text-amber-300' : 'text-emerald-400 group-hover:text-emerald-300'
+                  }`}
+                >
+                  <span>Browse Bikes</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
       {/* Featured Bikes */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -135,13 +247,16 @@ export const HomeView: React.FC<HomeViewProps> = ({ onSelectProduct, onAddToCart
             <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">
               Rider Favorites
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white mt-1">Most Popular Models</h2>
+            <h2 className="text-2xl sm:text-3xl font-black text-white mt-1">Featured Electric Dirt Bikes</h2>
+            <p className="text-sm text-zinc-400 mt-1 max-w-xl">
+              Hand-picked, in-stock now — every model backed by free nationwide shipping and a 10% instant crypto discount.
+            </p>
           </div>
           <Link
             to="/shop"
-            className="inline-flex items-center gap-1.5 text-sm font-mono font-bold text-emerald-400 hover:text-emerald-300"
+            className="inline-flex items-center gap-1.5 text-sm font-mono font-bold text-emerald-400 hover:text-emerald-300 shrink-0"
           >
-            <span>View Full Shop (18 Models)</span>
+            <span>Shop All Inventory ({PRODUCTS.length} Models)</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -158,42 +273,168 @@ export const HomeView: React.FC<HomeViewProps> = ({ onSelectProduct, onAddToCart
         </div>
       </section>
 
-      {/* Trust / Explore Links */}
+      {/* Engineering Benchmarks / Brand Story */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 space-y-3">
-            <ShieldCheck className="w-6 h-6 text-emerald-400" />
-            <h3 className="text-sm font-bold text-white">2-Year Factory Warranty</h3>
-            <p className="text-xs text-zinc-400 leading-relaxed">
-              Full frame, motor, controller, and battery pack coverage on every bike we ship.
+        <div className="p-6 sm:p-10 rounded-3xl bg-zinc-900/60 border border-zinc-800/80 space-y-8">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold flex items-center justify-center gap-1.5">
+              <Cpu className="w-3.5 h-3.5" />
+              Engineered Since 2000
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white">Built for the Trail. Backed for the Long Run.</h2>
+            <p className="text-sm text-zinc-400 leading-relaxed">
+              From our first 72V prototype to today's full lineup, every Kanvale bike is engineered around instant torque, zero maintenance, and real warranty coverage.
             </p>
           </div>
 
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {ENGINEERING_BENCHMARKS.map((item) => (
+              <div key={item.title} className="p-4 rounded-2xl bg-zinc-950/60 border border-zinc-800/80 space-y-2">
+                <item.icon className="w-5 h-5 text-emerald-400" />
+                <h3 className="text-xs font-bold text-white leading-snug">{item.title}</h3>
+                <p className="text-[11px] text-zinc-400 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link
+              to="/about"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs font-black transition-all shadow-lg shadow-emerald-500/20"
+            >
+              <span>Read Our Company Story</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-bold border border-zinc-700 transition-colors"
+            >
+              <span>Talk to Our Dispatch Team</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Preview: Field Reports & Trail Guides */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">
+              Rider Dispatch &amp; Trail Guides
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white mt-1">Field Reports &amp; Tech Guides</h2>
+          </div>
           <Link
             to="/blog"
-            className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 space-y-3 hover:border-emerald-500/40 transition-colors group"
+            className="inline-flex items-center gap-1.5 text-sm font-mono font-bold text-emerald-400 hover:text-emerald-300 shrink-0"
           >
-            <BookOpen className="w-6 h-6 text-emerald-400" />
-            <h3 className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
-              Rider Dispatch &amp; Trail Guides
-            </h3>
-            <p className="text-xs text-zinc-400 leading-relaxed">
-              Trail regulations, safety breakdowns, and engineering deep-dives for Australia and the USA.
-            </p>
+            <span>Read All Articles</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
+        </div>
 
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {latestPosts.map((post) => (
+            <Link
+              key={post.id}
+              to="/blog"
+              className="flex flex-col rounded-2xl bg-zinc-900/60 border border-zinc-800/80 hover:border-emerald-500/40 transition-all overflow-hidden group"
+            >
+              <div className="relative aspect-[16/9] overflow-hidden bg-zinc-950">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-5 flex-1 flex flex-col">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-bold">
+                  {post.category}
+                </span>
+                <h3 className="text-sm font-bold text-white mt-1.5 leading-snug group-hover:text-emerald-300 transition-colors line-clamp-2">
+                  {post.title}
+                </h3>
+                <p className="text-xs text-zinc-400 mt-2 leading-relaxed line-clamp-2 flex-1">{post.excerpt}</p>
+                <div className="mt-4 pt-3 border-t border-zinc-800/80 flex items-center gap-3 text-[10px] font-mono text-zinc-400">
+                  <span className="flex items-center gap-1">
+                    <Calendar className="w-3 h-3" /> {post.date}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="w-3 h-3" /> {post.readTime}
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ Preview */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">
+              Rider Knowledge Base
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white mt-1">Frequently Asked Questions</h2>
+          </div>
           <Link
             to="/faq"
-            className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 space-y-3 hover:border-emerald-500/40 transition-colors group"
+            className="inline-flex items-center gap-1.5 text-sm font-mono font-bold text-emerald-400 hover:text-emerald-300 shrink-0"
           >
-            <MessageCircleQuestion className="w-6 h-6 text-emerald-400" />
-            <h3 className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
-              Questions Before You Order?
-            </h3>
-            <p className="text-xs text-zinc-400 leading-relaxed">
-              Shipping, crypto discounts, battery range, and warranty — answered in our FAQ.
-            </p>
+            <span>Read All FAQs</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {previewFaqs.map((faq) => (
+            <Link
+              key={faq.id}
+              to="/faq"
+              className="p-4 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 hover:border-emerald-500/40 transition-colors flex items-start gap-3 group"
+            >
+              <HelpCircle className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+              <span className="text-xs font-semibold text-zinc-200 group-hover:text-emerald-300 transition-colors leading-snug">
+                {faq.question}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Trust Badge Strip */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 p-5 sm:p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/80">
+          <div className="flex items-center gap-3">
+            <Zap className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+            <div>
+              <p className="text-xs font-bold text-white">60V–80V High-Output</p>
+              <p className="text-[10px] text-zinc-400">Instant brushless torque</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <ShieldCheck className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+            <div>
+              <p className="text-xs font-bold text-white">2-Year Factory Warranty</p>
+              <p className="text-[10px] text-zinc-400">Frame, motor &amp; battery</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <Coins className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+            <div>
+              <p className="text-xs font-bold text-white">10% Crypto Discount</p>
+              <p className="text-[10px] text-zinc-400">Pay via BTC, ETH, SOL, USDT</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <Award className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+            <div>
+              <p className="text-xs font-bold text-white">Free Nationwide Shipping</p>
+              <p className="text-[10px] text-zinc-400">Steel-crated freight delivery</p>
+            </div>
+          </div>
         </div>
       </section>
     </div>
