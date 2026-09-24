@@ -24,6 +24,7 @@ import {
   Bike,
   Flame,
   Gauge,
+  Mountain,
 } from 'lucide-react';
 
 interface HomeViewProps {
@@ -39,6 +40,7 @@ const CATEGORY_ICONS: Record<string, React.ElementType> = {
   'Stark Future': Flame,
   '79Bikes': Bike,
   Yotsuba: Users,
+  Takani: Mountain,
   'Electric Balance Bikes': Baby,
   'GMX Australian Dirt Bikes': ShieldCheck,
   'Parts & Upgrades': Wrench,

@@ -27,8 +27,13 @@ export const CATEGORIES = [
     description: 'Japanese-designed electric kids bikes with rear hub motors (no exposed chain or sprocket), 3-axis crash sensors, and key-locked speed limiters.'
   },
   {
+    name: 'Takani',
+    subcategories: ['Kids Electric Dirt Bikes', 'Adult & Teen Electric Dirt Bikes'],
+    description: 'An Australian-designed (Brisbane) electric dirt bike brand built around a fully automatic chain-drive platform — no clutch, no gears, just twist-and-go.'
+  },
+  {
     name: 'Electric Balance Bikes',
-    subcategories: ['Ages 2+', 'Ages 6+'],
+    subcategories: ['Ages 2+', 'Ages 5+', 'Ages 6+'],
     description: 'The youngest riders start here — pedal-free electric balance bikes that build confidence before a geared dirt bike.'
   },
   {
@@ -683,6 +688,147 @@ export const PRODUCTS: Product[] = [
     ],
     inStock: true,
     riderSuitability: 'Riders 6+ years old, under 40kg, stepping up from a smaller balance bike.'
+  },
+  {
+    id: 'takani-tk1652-rs',
+    name: 'TAKANI TK1652-RS 16" Electric Balance Bike',
+    slug: 'takani-tk1652-rs',
+    category: 'Electric Balance Bikes',
+    subcategory: 'Ages 5+',
+    price: 1300,
+    badge: 'Premium',
+    description: 'Australia\'s highest-powered electric balance bike. A 52V system with a hot-swappable 180Wh battery, adjustable hydraulic front suspension, and a stiffened frame — built for kids ready to push past a basic balance bike.',
+    features: [
+      '52V High-Speed Brushless Hub Motor (350W, optional 700W upgrade)',
+      'Hot-Swappable 52V 180Wh Battery (Tool-less)',
+      'Adjustable Hydraulic Front Suspension (70mm Travel)',
+      '3 Selectable Speed Settings (10 / 18 / 27 km/h)'
+    ],
+    specs: {
+      peakPower: '350W (Optional 700W Racing Controller)',
+      topSpeed: '27 km/h (Optional upgrade to 35 km/h)',
+      batteryWh: '52V Lithium-Ion, 180Wh (Hot-Swappable)',
+      range: 'Approx. 20 km',
+      chargeTime: '2-3 hours',
+      weight: '12.5 kg (28 lbs)',
+      suspension: 'Adjustable Hydraulic Front Fork (70mm Travel)',
+      brakes: 'Rear 160mm Disc (Front-Brake-Ready, Optional Kit)',
+      frame: '6061 Aluminium Alloy',
+      maxLoad: '45 kg (99 lbs)',
+      waterproof: 'Not IP-rated (electronic motor shut-off on fault)'
+    },
+    image: 'https://images.unsplash.com/photo-1547025603-ef90c50b64d0?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1547025603-ef90c50b64d0?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Riders 5-10 years old, under 45kg, wanting the highest-powered balance bike on the market.'
+  },
+  {
+    id: 'takani-tk1010-20',
+    name: 'TAKANI TK1010-20 2400W Kids Electric Dirt Bike',
+    slug: 'takani-tk1010-20',
+    category: 'Takani',
+    subcategory: 'Kids Electric Dirt Bikes',
+    price: 2499,
+    badge: 'Popular',
+    description: 'A fully automatic electric dirt bike for young riders — no clutch, no gears, just twist and go. A 600mm seat height and adjustable, lockable top speed make it a natural step up from a balance bike.',
+    features: [
+      '2,400W Peak Power, Fully Automatic Chain Drive',
+      'LiFePO4 Battery with 90-Second Swap',
+      'Adjustable & Lockable Top Speed (Parent-Controlled)',
+      'Light Anodised Aluminium Wheels'
+    ],
+    specs: {
+      peakPower: '2,400W Peak',
+      topSpeed: '55 km/h (Adjustable & Lockable)',
+      batteryWh: 'LiFePO4 (Samford EMX)',
+      range: 'Approx. 1 hour continuous riding',
+      chargeTime: '3 hours',
+      weight: 'Not published by manufacturer',
+      suspension: 'Standard Front Forks & Rear Shock',
+      brakes: 'Adjustable E-Bike Brakes (Samford EMX)',
+      frame: 'Steel, Seat Height 600mm',
+      maxLoad: 'Not published by manufacturer',
+      waterproof: 'Not IP-rated (electronic motor shut-off on fault)'
+    },
+    image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Kids ages 4-7, comparable in size/performance to a 50cc petrol trail bike but far easier to ride.'
+  },
+  {
+    id: 'takani-tk1412-20',
+    name: 'TAKANI TK1412-20 2400W Electric Dirt Bike',
+    slug: 'takani-tk1412-20',
+    category: 'Takani',
+    subcategory: 'Kids Electric Dirt Bikes',
+    price: 2649,
+    badge: 'Popular',
+    description: 'The larger-wheeled sibling of the TK1010-20, identical in every way except a taller 680mm seat height and bigger wheels — built for riders who\'ve outgrown the smaller model.',
+    features: [
+      '2,400W Peak Power, Fully Automatic Chain Drive',
+      'LiFePO4 Battery with 90-Second Swap',
+      'Adjustable & Lockable Top Speed (Parent-Controlled)',
+      'Heavy-Duty Adjustable E-Moto Brakes'
+    ],
+    specs: {
+      peakPower: '2,400W Peak',
+      topSpeed: '55 km/h (Adjustable & Lockable)',
+      batteryWh: 'LiFePO4 (Samford EMX)',
+      range: 'Approx. 1 hour continuous riding',
+      chargeTime: '3 hours',
+      weight: 'Not published by manufacturer',
+      suspension: 'Standard Front Forks & Rear Shock',
+      brakes: 'Adjustable Heavy-Duty E-Moto Brakes (Samford EMX)',
+      frame: 'Steel, Seat Height 680mm',
+      maxLoad: 'Not published by manufacturer',
+      waterproof: 'Not IP-rated (electronic motor shut-off on fault)'
+    },
+    image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Kids ages 7-11, comparable in size/performance to a 50-80cc petrol trail bike but far easier to ride.'
+  },
+  {
+    id: 'takani-tk1714-70',
+    name: 'TAKANI TK1714-70 72V Electric Dirt Bike',
+    slug: 'takani-tk1714-70',
+    category: 'Takani',
+    subcategory: 'Adult & Teen Electric Dirt Bikes',
+    price: 4500,
+    originalPrice: 5000,
+    badge: 'Sale',
+    description: 'TAKANI\'s serious-performance model for riders 16+. An 8,000W encoder-controlled mid-drive motor and genuine Samsung 35Ah swappable battery deliver comparable performance to an 85cc two-stroke, fully automatic with no clutch or gears.',
+    features: [
+      '8,000W Peak Motor, 240 Nm Adjustable Torque',
+      'Genuine Samsung 35Ah Swappable Battery',
+      '3 Selectable Speed Settings (45 / 65 / 80 km/h)',
+      'Hydraulic Upside-Down Forks & 4-Piston Hydraulic Brakes'
+    ],
+    specs: {
+      peakPower: '8,000W Peak (240 Nm Adjustable Torque)',
+      topSpeed: '80 km/h (45 / 65 / 80 km/h settings)',
+      batteryWh: '84V Max (72V Nominal) 35Ah Samsung Cells',
+      range: 'Approx. 60 minutes runtime',
+      chargeTime: '5-6 hours',
+      weight: '72 kg (159 lbs)',
+      suspension: 'Hydraulic Upside-Down Front Fork & Adjustable Mono Shock',
+      brakes: 'Hydraulic 4-Piston Calipers with Electronic Motor Shut-Off',
+      frame: 'Aluminium Cast/Forged Triple Clamp, Seat Height 820mm',
+      maxLoad: '90 kg (198 lbs)',
+      waterproof: 'Not IP-rated (electronic motor shut-off on fault)'
+    },
+    image: 'https://images.unsplash.com/photo-1509744645300-a2098b11871a?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1509744645300-a2098b11871a?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Riders 16+ years old, 158cm+, up to 90kg, wanting a serious-performance step up from a learner bike. Off-road/private property use only — not road legal.'
   },
   {
     id: 'rapid-supercharger-15a-72v-80v',
