@@ -5,8 +5,6 @@ import { CATEGORIES, PRODUCTS } from '../data/products';
 import { BLOG_POSTS } from '../data/blog';
 import { FAQ_ITEMS } from '../data/faq';
 import { ProductCard } from '../components/ProductCard';
-import { TrustpilotWidget } from '../components/TrustpilotWidget';
-import { TRUSTPILOT } from '../config/trustpilot';
 import { useSEO, SITE_URL } from '../hooks/useSEO';
 import {
   Zap,
@@ -23,7 +21,6 @@ import {
   HelpCircle,
   Cpu,
   Award,
-  Star,
 } from 'lucide-react';
 
 interface HomeViewProps {
@@ -275,26 +272,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
           ))}
         </div>
       </section>
-
-      {/* Customer Reviews (Trustpilot) — only renders once a real Business Unit ID is configured */}
-      {TRUSTPILOT.businessUnitId && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold flex items-center justify-center gap-1.5">
-              <Star className="w-3.5 h-3.5" />
-              Verified Reviews
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white">What Our Riders Say</h2>
-            <p className="text-sm text-zinc-400 leading-relaxed">
-              Real, verified feedback from Kanvale riders — collected and independently hosted by Trustpilot.
-            </p>
-          </div>
-
-          <div className="p-4 sm:p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800/80">
-            <TrustpilotWidget />
-          </div>
-        </section>
-      )}
 
       {/* Engineering Benchmarks / Brand Story */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
