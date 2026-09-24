@@ -3,14 +3,7 @@ import { Product } from '../types';
 import { CATEGORIES, PRODUCTS } from '../data/products';
 import { ProductCard } from '../components/ProductCard';
 import { useSEO } from '../hooks/useSEO';
-import {
-  Zap,
-  Filter,
-  Layers,
-  SlidersHorizontal,
-  ArrowUpDown,
-  ArrowRight
-} from 'lucide-react';
+import { Zap, Filter, ArrowUpDown, ChevronDown } from 'lucide-react';
 
 interface ShopViewProps {
   onSelectProduct: (product: Product) => void;
@@ -33,19 +26,16 @@ export const ShopView: React.FC<ShopViewProps> = ({
   const [selectedSubcategory, setSelectedSubcategory] = useState<string>('All');
   const [selectedBadge, setSelectedBadge] = useState<string>('All');
   const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high' | 'power'>('featured');
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   const selectedCategory = controlledCategory !== undefined ? controlledCategory : internalCategory;
-  const setSelectedCategory = (cat: string) => {
+  const setSelectedCategory = (cat: string, subcat: string = 'All') => {
     if (onSelectCategory) {
       onSelectCategory(cat);
     }
     setInternalCategory(cat);
-    setSelectedSubcategory('All');
+    setSelectedSubcategory(subcat);
   };
-
-  // Available subcategories based on current selected category
-  const activeCategoryObj = CATEGORIES.find((c) => c.name === selectedCategory);
-  const availableSubcategories = activeCategoryObj ? activeCategoryObj.subcategories : [];
 
   // Filter products based on Category → Subcategory → Badge
   const filteredProducts = useMemo(() => {
@@ -85,10 +75,75 @@ export const ShopView: React.FC<ShopViewProps> = ({
     canonicalPath: '/shop',
   });
 
+  // Nested category → subcategory tree, rendered in the sidebar
+  const CategoryTree = () => (
+    <nav aria-label="Shop categories" className="space-y-5">
+      <button
+        onClick={() => setSelectedCategory('All')}
+        className={`w-full text-left text-sm font-mono font-bold transition-colors cursor-pointer ${
+          selectedCategory === 'All' ? 'text-emerald-400' : 'text-white hover:text-emerald-400'
+        }`}
+      >
+        All Bikes ({PRODUCTS.length})
+      </button>
+
+      {CATEGORIES.map((cat) => {
+        const isGMX = cat.name === 'GMX Australian Dirt Bikes';
+        const isCategoryActive = selectedCategory === cat.name;
+        const count = PRODUCTS.filter((p) => p.category === cat.name).length;
+
+        return (
+          <div key={cat.name}>
+            <button
+              onClick={() => setSelectedCategory(cat.name)}
+              className={`w-full text-left text-sm font-mono font-bold transition-colors cursor-pointer flex items-center gap-1.5 ${
+                isCategoryActive
+                  ? isGMX
+                    ? 'text-amber-400'
+                    : 'text-emerald-400'
+                  : isGMX
+                    ? 'text-amber-300 hover:text-amber-200'
+                    : 'text-white hover:text-emerald-400'
+              }`}
+            >
+              {isGMX && <span>🇦🇺</span>}
+              <span>{cat.name}</span>
+              <span className="text-[10px] text-zinc-500 font-normal">({count})</span>
+            </button>
+
+            {cat.subcategories.length > 0 && (
+              <ul className="mt-1.5 ml-3 space-y-1.5 border-l border-zinc-800 pl-3">
+                {cat.subcategories.map((sub) => {
+                  const isSubActive = isCategoryActive && selectedSubcategory === sub;
+                  return (
+                    <li key={sub}>
+                      <button
+                        onClick={() => setSelectedCategory(cat.name, sub)}
+                        className={`text-left text-xs font-mono transition-colors cursor-pointer ${
+                          isSubActive
+                            ? isGMX
+                              ? 'text-amber-400 font-bold'
+                              : 'text-emerald-400 font-bold'
+                            : 'text-zinc-400 hover:text-zinc-200'
+                        }`}
+                      >
+                        {sub}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
+        );
+      })}
+    </nav>
+  );
+
   return (
-    <div className="space-y-10 pb-16">
+    <div className="pb-16">
       {/* Compact Page Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6">
         <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 font-bold flex items-center gap-1.5">
           <Zap className="w-3.5 h-3.5" />
           Full Showroom Inventory
@@ -101,329 +156,102 @@ export const ShopView: React.FC<ShopViewProps> = ({
         </p>
       </section>
 
-      {/* Shop Filtering Container (Category → Subcategory → Product) */}
-      <section id="catalog-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-        {/* Brand / Series Quick Switcher */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-zinc-900/80 border border-zinc-800 space-y-3">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <div>
-              <span className="text-xs font-mono uppercase tracking-wider text-zinc-400 font-bold flex items-center gap-1.5">
-                <SlidersHorizontal className="w-4 h-4 text-emerald-400" />
-                Filter By Brand &amp; Manufacturer:
+      {/* Sidebar + Product Grid */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
+        {/* Mobile category toggle */}
+        <button
+          onClick={() => setMobileSidebarOpen((v) => !v)}
+          className="lg:hidden w-full mb-4 flex items-center justify-between px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-sm font-mono font-bold text-zinc-200"
+        >
+          <span>Categories</span>
+          <ChevronDown className={`w-4 h-4 transition-transform ${mobileSidebarOpen ? 'rotate-180' : ''}`} />
+        </button>
+
+        {/* Sidebar */}
+        <aside className={`${mobileSidebarOpen ? 'block' : 'hidden'} lg:block mb-8 lg:mb-0`}>
+          <div className="lg:sticky lg:top-24 p-4 lg:p-0 rounded-xl bg-zinc-900/60 lg:bg-transparent border border-zinc-800/80 lg:border-0">
+            <CategoryTree />
+          </div>
+        </aside>
+
+        {/* Main Content */}
+        <div className="min-w-0 space-y-6">
+          {/* Sort + Badge Controls */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pb-4 border-b border-zinc-800/80">
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs font-mono">
+              <span className="text-zinc-400 mr-1 flex items-center gap-1 shrink-0">
+                <Filter className="w-3.5 h-3.5 text-zinc-400" /> Badge:
               </span>
-              <p className="text-xs text-zinc-400 mt-0.5">
-                Quickly toggle between the complete inventory or the official GMX Australian range:
-              </p>
+              {['All', 'Popular', 'Best Value', 'Premium', 'New', 'Sale'].map((b) => (
+                <button
+                  key={b}
+                  onClick={() => setSelectedBadge(b)}
+                  className={`px-2.5 py-1 rounded-lg transition-colors cursor-pointer shrink-0 ${
+                    selectedBadge === b
+                      ? 'bg-zinc-800 text-emerald-400 font-bold border border-emerald-500/30'
+                      : 'text-zinc-400 hover:text-zinc-200 bg-zinc-900/60'
+                  }`}
+                >
+                  {b}
+                </button>
+              ))}
             </div>
-            <span className="text-xs text-zinc-400 font-mono">
-              Total {PRODUCTS.length} Bikes in Inventory
-            </span>
+
+            <div className="flex items-center gap-2 self-end sm:self-auto text-xs font-mono shrink-0">
+              <ArrowUpDown className="w-3.5 h-3.5 text-zinc-400" />
+              <select
+                value={sortBy}
+                onChange={(e: any) => setSortBy(e.target.value)}
+                className="px-3 py-1.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 focus:outline-none focus:border-emerald-500"
+              >
+                <option value="featured">Featured Models</option>
+                <option value="power">Highest Motor Power (kW)</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+              </select>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
-            <button
-              onClick={() => {
-                setSelectedCategory('All');
-              }}
-              className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
-                selectedCategory === 'All'
-                  ? 'bg-zinc-800 border-zinc-500 text-white shadow-md'
-                  : 'bg-zinc-950/60 border-zinc-800/80 text-zinc-400 hover:text-white hover:bg-zinc-900'
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold">All Bikes</span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">
-                  {PRODUCTS.length} Models
-                </span>
-              </div>
-              <p className="text-[11px] text-zinc-400 mt-1">Complete showroom collection</p>
-            </button>
-
-            <button
-              onClick={() => {
-                setSelectedCategory('GMX Australian Dirt Bikes');
-              }}
-              className={`p-3 rounded-xl border-2 text-left transition-all cursor-pointer ${
-                selectedCategory === 'GMX Australian Dirt Bikes'
-                  ? 'bg-amber-500/20 border-amber-500 text-amber-200 shadow-lg shadow-amber-500/20 ring-1 ring-amber-500/50'
-                  : 'bg-amber-950/25 border-amber-500/40 text-amber-300 hover:bg-amber-950/50'
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-black flex items-center gap-1.5 text-amber-300">
-                  <span>🇦🇺</span> GMX Motorbikes
-                </span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500 text-black font-black">
-                  9 Models
-                </span>
-              </div>
-              <p className="text-[11px] text-amber-400/90 mt-1">70cc–250cc Petrol &amp; ECR Electric</p>
-            </button>
-
-            <button
-              onClick={() => {
-                setSelectedCategory('Adult Electric Dirt Bikes');
-              }}
-              className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
-                selectedCategory === 'Adult Electric Dirt Bikes' || selectedCategory === 'Youth & Childrens E-Dirt Bikes'
-                  ? 'bg-emerald-500/20 border-emerald-500 text-emerald-200 shadow-md'
-                  : 'bg-zinc-950/60 border-zinc-800/80 text-zinc-400 hover:text-white hover:bg-zinc-900'
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold flex items-center gap-1 text-emerald-400">
-                  <Zap className="w-3.5 h-3.5" /> High-Torque E-Motos
-                </span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30">
-                  9 Models
-                </span>
-              </div>
-              <p className="text-[11px] text-zinc-400 mt-1">Adult Hyper, Enduro &amp; Youth</p>
-            </button>
-          </div>
-        </div>
-
-        {/* Category Selector Tabs */}
-        <div>
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-mono uppercase tracking-wider text-zinc-400 font-bold flex items-center gap-1.5">
-              <Layers className="w-4 h-4 text-emerald-400" />
-              Category Filter:
-            </span>
+          {/* Active category heading */}
+          <div className="flex items-center justify-between">
+            <h2 className="text-sm font-mono font-bold text-zinc-300">
+              {selectedCategory === 'All' ? 'All Bikes' : selectedCategory}
+              {selectedSubcategory !== 'All' && (
+                <span className="text-zinc-500"> / {selectedSubcategory}</span>
+              )}
+            </h2>
             <span className="text-xs text-zinc-400 font-mono">
               Showing {filteredProducts.length} Models
             </span>
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => {
-                setSelectedCategory('All');
-              }}
-              className={`px-4 py-2.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
-                selectedCategory === 'All'
-                  ? 'bg-emerald-500 text-zinc-950 shadow-md shadow-emerald-500/20'
-                  : 'bg-zinc-900 text-zinc-300 hover:bg-zinc-800 border border-zinc-800'
-              }`}
-            >
-              All Categories ({PRODUCTS.length})
-            </button>
-
-            {CATEGORIES.map((cat) => {
-              const isSelected = selectedCategory === cat.name;
-              const count = PRODUCTS.filter((p) => p.category === cat.name).length;
-              const isGMX = cat.name === 'GMX Australian Dirt Bikes';
-              return (
-                <button
-                  key={cat.name}
-                  onClick={() => {
-                    setSelectedCategory(cat.name);
-                  }}
-                  className={`px-4 py-2.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                    isSelected
-                      ? isGMX
-                        ? 'bg-amber-500 text-zinc-950 shadow-md shadow-amber-500/30 ring-2 ring-amber-400'
-                        : 'bg-emerald-500 text-zinc-950 shadow-md shadow-emerald-500/20'
-                      : isGMX
-                        ? 'bg-amber-950/40 text-amber-300 border-2 border-amber-500/60 hover:bg-amber-900/60'
-                        : 'bg-zinc-900 text-zinc-300 hover:bg-zinc-800 border border-zinc-800'
-                  }`}
-                >
-                  {isGMX && <span>🇦🇺</span>}
-                  <span>{cat.name} ({count})</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Subcategories (if a category is selected) */}
-        {availableSubcategories.length > 0 && (
-          <div className="p-4 rounded-2xl bg-zinc-900/50 border border-zinc-800/80 space-y-3">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 font-bold">
-                Filter by Subcategory in {selectedCategory}:
-              </span>
-              {selectedCategory === 'GMX Australian Dirt Bikes' && (
-                <span className="text-[10px] font-mono text-amber-300 font-bold bg-amber-950/80 px-2 py-0.5 rounded border border-amber-500/40 w-fit">
-                  Official GMX Range • 70cc - 250cc &amp; ECR Electric
-                </span>
-              )}
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              <button
-                onClick={() => setSelectedSubcategory('All')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-colors cursor-pointer ${
-                  selectedSubcategory === 'All'
-                    ? 'bg-zinc-200 text-zinc-950 font-bold'
-                    : 'bg-zinc-800/80 text-zinc-400 hover:text-white'
-                }`}
-              >
-                All Subcategories
-              </button>
-              {availableSubcategories.map((sub) => (
-                <button
-                  key={sub}
-                  onClick={() => setSelectedSubcategory(sub)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-colors cursor-pointer ${
-                    selectedSubcategory === sub
-                      ? 'bg-amber-500 text-zinc-950 font-bold'
-                      : 'bg-zinc-800/80 text-zinc-400 hover:text-white'
-                  }`}
-                >
-                  {sub}
-                </button>
-              ))}
-            </div>
-
-            {/* Category Description text */}
-            <p className="text-xs text-zinc-400 leading-relaxed pt-1 border-t border-zinc-800/60 font-sans">
-              {CATEGORIES.find((c) => c.name === selectedCategory)?.description}
-            </p>
-          </div>
-        )}
-
-        {/* Featured GMX Showcase Shelf when 'All' is selected */}
-        {selectedCategory === 'All' && (
-          <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-b from-amber-950/30 via-zinc-900/60 to-zinc-950 border-2 border-amber-500/40 space-y-4 shadow-xl">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-zinc-800/80 pb-3">
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-black bg-amber-500 text-black uppercase">
-                    🇦🇺 GMX COLLECTION
-                  </span>
-                  <h3 className="text-base sm:text-lg font-mono font-black text-white flex items-center gap-1.5">
-                    GMX Motorbikes Range (9 Products Added)
-                  </h3>
-                </div>
-                <p className="text-xs text-zinc-400 mt-1">
-                  Sourced from <span className="text-amber-300 font-mono">gmxmotorbikes.com.au/dirt-bikes</span> — 70cc kids bikes, 125cc pit bikes, 250cc enduros, and high-voltage electrics.
-                </p>
-              </div>
-
+          {/* Product Grid */}
+          {filteredProducts.length === 0 ? (
+            <div className="py-16 text-center rounded-3xl bg-zinc-900/30 border border-zinc-800/80 p-8 space-y-3">
+              <p className="text-zinc-400 text-sm font-mono">No models match the selected filter combination.</p>
               <button
                 onClick={() => {
-                  setSelectedCategory('GMX Australian Dirt Bikes');
+                  setSelectedCategory('All');
+                  setSelectedBadge('All');
                 }}
-                className="text-xs font-mono font-black text-amber-400 hover:text-amber-300 flex items-center gap-1.5 shrink-0 self-start sm:self-auto cursor-pointer px-3 py-1.5 rounded-lg bg-amber-950/60 border border-amber-500/40"
+                className="px-4 py-2 rounded-xl bg-zinc-800 text-white text-xs font-mono hover:bg-zinc-700"
               >
-                <span>Filter to GMX Range Only</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                Reset All Filters
               </button>
             </div>
-
-            {/* Showcase Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {PRODUCTS.filter((p) => p.category === 'GMX Australian Dirt Bikes').map((product) => (
-                <div 
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+              {filteredProducts.map((product) => (
+                <ProductCard
                   key={product.id}
-                  onClick={() => onSelectProduct(product)}
-                  className="p-3.5 rounded-2xl bg-zinc-950 border border-amber-500/30 hover:border-amber-400 transition-all cursor-pointer group flex flex-col justify-between hover:shadow-lg hover:shadow-amber-500/10"
-                >
-                  <div>
-                    <div className="relative aspect-video rounded-xl overflow-hidden bg-zinc-900 mb-3">
-                      <img 
-                        src={product.image} 
-                        alt={product.name} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        referrerPolicy="no-referrer"
-                      />
-                      <span className="absolute top-2 left-2 px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500 text-black shadow-md">
-                        {product.specs.peakPower}
-                      </span>
-                      <span className="absolute top-2 right-2 px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-950/90 text-amber-300 border border-amber-500/30">
-                        {product.badge}
-                      </span>
-                    </div>
-                    <h4 className="text-sm font-bold text-white group-hover:text-amber-400 transition-colors leading-snug">
-                      {product.name}
-                    </h4>
-                    <p className="text-xs text-zinc-400 line-clamp-2 mt-1.5">
-                      {product.description}
-                    </p>
-                  </div>
-
-                  <div className="mt-4 pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono">
-                    <span className="text-emerald-400 font-bold text-base">
-                      ${product.price.toLocaleString()}
-                    </span>
-                    <span className="text-amber-300 font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                      View Specs &amp; Order →
-                    </span>
-                  </div>
-                </div>
+                  product={product}
+                  onSelectProduct={onSelectProduct}
+                  onAddToCart={onAddToCart}
+                />
               ))}
             </div>
-          </div>
-        )}
-
-        {/* Secondary Filter & Sort Controls */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2">
-          {/* Badge Filter */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs font-mono">
-            <span className="text-zinc-400 mr-1 flex items-center gap-1">
-              <Filter className="w-3.5 h-3.5 text-zinc-400" /> Badge:
-            </span>
-            {['All', 'Popular', 'Best Value', 'Premium', 'New', 'Sale'].map((b) => (
-              <button
-                key={b}
-                onClick={() => setSelectedBadge(b)}
-                className={`px-2.5 py-1 rounded-lg transition-colors cursor-pointer ${
-                  selectedBadge === b
-                    ? 'bg-zinc-800 text-emerald-400 font-bold border border-emerald-500/30'
-                    : 'text-zinc-400 hover:text-zinc-200 bg-zinc-900/60'
-                }`}
-              >
-                {b}
-              </button>
-            ))}
-          </div>
-
-          {/* Sort By */}
-          <div className="flex items-center gap-2 self-end sm:self-auto text-xs font-mono">
-            <ArrowUpDown className="w-3.5 h-3.5 text-zinc-400" />
-            <select
-              value={sortBy}
-              onChange={(e: any) => setSortBy(e.target.value)}
-              className="px-3 py-1.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 focus:outline-none focus:border-emerald-500"
-            >
-              <option value="featured">Featured Models</option>
-              <option value="power">Highest Motor Power (kW)</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
-            </select>
-          </div>
+          )}
         </div>
-
-        {/* Product Grid */}
-        {filteredProducts.length === 0 ? (
-          <div className="py-16 text-center rounded-3xl bg-zinc-900/30 border border-zinc-800/80 p-8 space-y-3">
-            <p className="text-zinc-400 text-sm font-mono">No models match the selected filter combination.</p>
-            <button
-              onClick={() => {
-                setSelectedCategory('All');
-                setSelectedSubcategory('All');
-                setSelectedBadge('All');
-              }}
-              className="px-4 py-2 rounded-xl bg-zinc-800 text-white text-xs font-mono hover:bg-zinc-700"
-            >
-              Reset All Filters
-            </button>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onSelectProduct={onSelectProduct}
-                onAddToCart={onAddToCart}
-              />
-            ))}
-          </div>
-        )}
       </section>
     </div>
   );
