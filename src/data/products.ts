@@ -365,6 +365,184 @@ export const PRODUCTS: Product[] = [
     riderSuitability: 'Riders wanting something different from the standard dirt-bike form factor for off-road fun.'
   },
   {
+    id: '79bike-falcon-gt',
+    name: '79Bike Falcon GT',
+    slug: '79bike-falcon-gt',
+    category: '79Bikes',
+    subcategory: 'Off-Road Only',
+    price: 4799,
+    originalPrice: 4999,
+    badge: 'Premium',
+    description: '79Bike\'s flagship model. A 16.8 kW peak motor and adjustable FastAce fork with high/low-speed tuning give the GT the most refined ride in the 79Bike lineup, plus an NFC-unlock dashboard.',
+    features: [
+      '16.8 kW Peak Mid-Mounted Motor, 610 Nm Torque',
+      '72V 40Ah Samsung 50S Battery',
+      'FastAce Fork with High & Low-Speed Adjustment',
+      'Upgraded Dashboard with NFC Unlock'
+    ],
+    specs: {
+      peakPower: '16.8 kW Peak',
+      topSpeed: '95 km/h (59 mph)',
+      batteryWh: '72V 40Ah (Samsung 50S)',
+      range: 'Up to 120 km',
+      chargeTime: '3-4 hours',
+      weight: '69 kg (152 lbs)',
+      suspension: 'FastAce Adjustable Fork & Rear Shock',
+      brakes: '220mm Hydraulic Disc, Front & Rear',
+      frame: 'Aluminum Alloy',
+      maxLoad: 'Not published by manufacturer',
+      waterproof: 'Not published by manufacturer'
+    },
+    image: 'https://images.unsplash.com/photo-1571932646633-8758b29c9b1f?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1571932646633-8758b29c9b1f?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Riders who want the highest-spec 79Bike model with the most refined suspension and tech.'
+  },
+  {
+    id: '79bike-falcon-pro',
+    name: '79Bike Falcon Pro',
+    slug: '79bike-falcon-pro',
+    category: '79Bikes',
+    subcategory: 'Off-Road Only',
+    price: 3799,
+    originalPrice: 3999,
+    badge: 'Popular',
+    description: '79Bike\'s best-known model. A 10 kW mid-mounted motor and 72V 35Ah LG battery deliver a claimed 75-mile range, with an NFC-unlock dashboard and light-sensing day/night display.',
+    features: [
+      '10 kW Peak Mid-Mounted Motor, 410 Nm Torque',
+      '72V 35Ah LG Lithium Battery',
+      'Fastace 2.0 Front Fork',
+      'NFC Unlock & Auto Day/Night Dashboard'
+    ],
+    specs: {
+      peakPower: '10.0 kW Peak',
+      topSpeed: '90 km/h (56 mph)',
+      batteryWh: '72V 35Ah (LG Lithium)',
+      range: 'Up to 121 km (75 miles)',
+      chargeTime: '3.5 hours',
+      weight: '59 kg (130 lbs)',
+      suspension: 'Fastace 2.0 Front Fork & Rear Shock',
+      brakes: 'Hydraulic Disc, Front & Rear',
+      frame: 'Aluminum Alloy',
+      maxLoad: 'Not published by manufacturer',
+      waterproof: 'Not published by manufacturer'
+    },
+    image: 'https://images.unsplash.com/photo-1558980394-4c7c9299fe96?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1558980394-4c7c9299fe96?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: '79Bike\'s most popular all-round model for trail riders wanting a balance of power and range.'
+  },
+  {
+    id: '79bike-falcon-lite',
+    name: '79Bike Falcon Lite',
+    slug: '79bike-falcon-lite',
+    category: '79Bikes',
+    subcategory: 'Off-Road Only',
+    price: 2499,
+    badge: 'Best Value',
+    description: 'The entry point into the 79Bike range. Built for beginners and everyday trail riding, with an 8 kW mid-drive motor and adjustable 200mm front fork at the lowest price in the lineup.',
+    features: [
+      '8 kW Peak Mid-Drive Motor, 340 Nm Torque',
+      '72V 30Ah NMC Lithium Battery (M50LT Cells)',
+      'Adjustable 200mm Front Fork, 85mm Rear Travel',
+      'E / D / S Multi-Mode Power Control'
+    ],
+    specs: {
+      peakPower: '8.0 kW Peak',
+      topSpeed: '84 km/h (52 mph)',
+      batteryWh: '72V 30Ah (NMC Lithium)',
+      range: 'Up to 80 km (50 miles)',
+      chargeTime: '3-4 hours',
+      weight: '63 kg (138 lbs)',
+      suspension: 'Adjustable 200mm Front Fork & 85mm Rear Travel',
+      brakes: 'Front 220mm / Rear 203mm Hydraulic Disc',
+      frame: 'Aluminum Alloy',
+      maxLoad: 'Not published by manufacturer',
+      waterproof: 'Not published by manufacturer'
+    },
+    image: 'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Beginner riders wanting the most affordable genuine 79Bike model.'
+  },
+  {
+    id: '79bike-lynx',
+    name: '79Bike Lynx',
+    slug: '79bike-lynx',
+    category: '79Bikes',
+    subcategory: 'Off-Road Only',
+    price: 3999,
+    originalPrice: 4199,
+    badge: 'New',
+    description: 'A 12 kW mid-drive motor and long-range 72V 40Ah battery, with a built-in Bluetooth speaker system and dual suspension tuned to soak up rough terrain.',
+    features: [
+      '12 kW Peak Mid-Drive Motor, 410 Nm Torque',
+      '72V 40Ah Long-Range Battery',
+      'Built-in Bluetooth Speaker System',
+      'FastAce Front Fork & Rear Shock Absorber'
+    ],
+    specs: {
+      peakPower: '12.0 kW Peak',
+      topSpeed: '90 km/h (56 mph)',
+      batteryWh: '72V 40Ah',
+      range: 'Long-range (exact figure not published)',
+      chargeTime: '4 hours',
+      weight: '66 kg (146 lbs)',
+      suspension: 'FastAce Front Fork & Rear Shock Absorber',
+      brakes: 'Hydraulic Disc, Front & Rear',
+      frame: 'Aluminum Alloy',
+      maxLoad: 'Not published by manufacturer',
+      waterproof: 'Not published by manufacturer'
+    },
+    image: 'https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Riders who want dual suspension comfort and a built-in Bluetooth speaker on the trail.'
+  },
+  {
+    id: '79bike-yvolt-surge-v',
+    name: '79Bike Yvolt Surge V',
+    slug: '79bike-yvolt-surge-v',
+    category: '79Bikes',
+    subcategory: 'Off-Road Only',
+    price: 5999,
+    badge: 'Premium',
+    description: '79Bike\'s most powerful model. A 97.2V system delivers 35 kW peak and 948 Nm of torque for instant acceleration, wrapped in a forged aluminum frame with pro-grade air suspension and full IP67 protection.',
+    features: [
+      '35 kW Peak Motor, 948 Nm Torque',
+      '97.2V 45Ah High-Voltage Battery',
+      'Forged Aluminum Frame with Pro-Grade Air Suspension',
+      'IP67 Fully Submersible Waterproof Rating'
+    ],
+    specs: {
+      peakPower: '35.0 kW Peak (47.6 PS)',
+      topSpeed: '110 km/h (68 mph)',
+      batteryWh: '97.2V 45Ah',
+      range: 'Up to 120 km @ 25 km/h',
+      chargeTime: 'Fast Charge (15A)',
+      weight: 'Not published by manufacturer',
+      suspension: 'Pro-Grade Air Suspension',
+      brakes: 'Hydraulic Disc, Front & Rear',
+      frame: 'Forged Aluminum',
+      maxLoad: '120 kg (265 lbs)',
+      waterproof: 'IP67 Fully Submersible'
+    },
+    image: 'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=1200&q=80'
+    ],
+    inStock: true,
+    riderSuitability: 'Advanced riders wanting the single most powerful bike in the entire Kanvale range.'
+  },
+  {
     id: 'yotsuba-moto-12',
     name: 'Yotsuba Moto 12 Electric Kids Bike',
     slug: 'yotsuba-moto-12',
