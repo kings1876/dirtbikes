@@ -82,9 +82,10 @@ export const PRODUCTS: Product[] = [
       maxLoad: '120 kg (265 lbs)',
       waterproof: 'IP65 Splash Proof'
     },
-    image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/surron-light-bee-x.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/surron-light-bee-x.jpg',
+      '/images/products/surron-light-bee-x-2.jpg'
     ],
     inStock: true,
     riderSuitability: 'First-time electric dirt bike buyers and riders who want the most widely supported platform on the market.'
@@ -117,9 +118,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '130 kg (287 lbs)',
       waterproof: 'IP65 Splash Proof'
     },
-    image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/surron-ultra-bee.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/surron-ultra-bee.jpg'
     ],
     inStock: true,
     riderSuitability: 'Intermediate to advanced riders wanting more range and torque than the Light Bee X.'
@@ -152,9 +153,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '135 kg (297 lbs)',
       waterproof: 'IP65 Splash Proof'
     },
-    image: 'https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/surron-storm-bee-enduro.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/surron-storm-bee-enduro.jpg'
     ],
     inStock: true,
     riderSuitability: 'Competitive riders and full-size motocross racers wanting the highest-output Surron platform.'
@@ -187,9 +188,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '130 kg (287 lbs)',
       waterproof: 'IP65 Splash Proof'
     },
-    image: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/surron-ultra-bee-road-adr.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/surron-ultra-bee-road-adr.jpg'
     ],
     inStock: true,
     riderSuitability: 'Riders who want one bike that can be registered for the street and still ride trails on weekends. Road registration requires state-based compliance — confirm requirements with Kanvale before ordering.'
@@ -222,9 +223,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '120 kg (265 lbs)',
       waterproof: 'IP65 Splash Proof'
     },
-    image: 'https://images.unsplash.com/photo-1509744645300-a2098b11871a?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/talaria-sting-r-mx4.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1509744645300-a2098b11871a?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/talaria-sting-r-mx4.jpg'
     ],
     inStock: true,
     riderSuitability: 'Trail riders who prefer a gearbox-driven drivetrain over a belt or direct-drive system.'
@@ -257,9 +258,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '125 kg (276 lbs)',
       waterproof: 'IP65 Splash Proof'
     },
-    image: 'https://images.unsplash.com/photo-1571932646633-8758b29c9b1f?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/talaria-sting-pro-mx5.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1571932646633-8758b29c9b1f?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/talaria-sting-pro-mx5.jpg'
     ],
     inStock: true,
     riderSuitability: 'Advanced trail riders wanting the highest-spec Sting model before stepping up to the full-size Komodo.'
@@ -292,9 +293,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '135 kg (297 lbs)',
       waterproof: 'IP65 Splash Proof'
     },
-    image: 'https://images.unsplash.com/photo-1558980394-4c7c9299fe96?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/talaria-komodo.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1558980394-4c7c9299fe96?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/talaria-komodo.jpg'
     ],
     inStock: true,
     riderSuitability: 'Competitive riders wanting Talaria\'s full-size motocross platform.'
@@ -327,9 +328,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '140 kg (309 lbs)',
       waterproof: 'IP65 Splash Proof'
     },
-    image: 'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/stark-varg-mx-60hp.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/stark-varg-mx-60hp.jpg'
     ],
     inStock: true,
     riderSuitability: 'Serious competitive motocross racers wanting the highest-output electric bike in the Kanvale lineup.'
@@ -362,9 +363,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '100 kg (220 lbs)',
       waterproof: 'IP65 Splash Proof'
     },
-    image: 'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/79bikes-viper-s.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/79bikes-viper-s.jpg'
     ],
     inStock: true,
     riderSuitability: 'Riders wanting something different from the standard dirt-bike form factor for off-road fun.'
@@ -398,9 +399,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: 'Not published by manufacturer',
       waterproof: 'Not published by manufacturer'
     },
-    image: 'https://images.unsplash.com/photo-1571932646633-8758b29c9b1f?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/79bike-falcon-gt.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1571932646633-8758b29c9b1f?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/79bike-falcon-gt.jpg'
     ],
     inStock: true,
     riderSuitability: 'Riders who want the highest-spec 79Bike model with the most refined suspension and tech.'
@@ -434,9 +435,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: 'Not published by manufacturer',
       waterproof: 'Not published by manufacturer'
     },
-    image: 'https://images.unsplash.com/photo-1558980394-4c7c9299fe96?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/79bike-falcon-pro.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1558980394-4c7c9299fe96?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/79bike-falcon-pro.jpg'
     ],
     inStock: true,
     riderSuitability: '79Bike\'s most popular all-round model for trail riders wanting a balance of power and range.'
@@ -469,9 +470,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: 'Not published by manufacturer',
       waterproof: 'Not published by manufacturer'
     },
-    image: 'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/79bike-falcon-lite.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/79bike-falcon-lite.jpg'
     ],
     inStock: true,
     riderSuitability: 'Beginner riders wanting the most affordable genuine 79Bike model.'
@@ -505,9 +506,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: 'Not published by manufacturer',
       waterproof: 'Not published by manufacturer'
     },
-    image: 'https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/79bike-lynx.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/79bike-lynx.jpg'
     ],
     inStock: true,
     riderSuitability: 'Riders who want dual suspension comfort and a built-in Bluetooth speaker on the trail.'
@@ -540,9 +541,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '120 kg (265 lbs)',
       waterproof: 'IP67 Fully Submersible'
     },
-    image: 'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/79bike-yvolt-surge-v.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/79bike-yvolt-surge-v.jpg'
     ],
     inStock: true,
     riderSuitability: 'Advanced riders wanting the single most powerful bike in the entire Kanvale range.'
@@ -576,9 +577,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '35 kg (77 lbs)',
       waterproof: 'Splash Resistant'
     },
-    image: 'https://images.unsplash.com/photo-1547025603-ef90c50b64d0?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/yotsuba-moto-12.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1547025603-ef90c50b64d0?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/yotsuba-moto-12.jpg'
     ],
     inStock: true,
     riderSuitability: 'The youngest riders (ages 2-6, height 85-90cm) taking their first steps into powered two wheels.'
@@ -611,9 +612,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '40 kg (88 lbs)',
       waterproof: 'Splash Resistant'
     },
-    image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/yotsuba-moto-16.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/yotsuba-moto-16.jpg'
     ],
     inStock: true,
     riderSuitability: 'Kids ages 6-12 (height 100cm+) ready to progress beyond the Moto 12.'
@@ -646,9 +647,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '35 kg (77 lbs)',
       waterproof: 'Splash Resistant'
     },
-    image: 'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/kka-electric-balance-bike-12.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/kka-electric-balance-bike-12.jpg'
     ],
     inStock: true,
     riderSuitability: 'Riders 2+ years old, under 35kg, with little or no balance bike experience.'
@@ -682,9 +683,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '45 kg (99 lbs)',
       waterproof: 'Splash Resistant'
     },
-    image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/kka-electric-balance-bike-16.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/kka-electric-balance-bike-16.jpg'
     ],
     inStock: true,
     riderSuitability: 'Riders 6+ years old, under 40kg, stepping up from a smaller balance bike.'
@@ -717,9 +718,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '45 kg (99 lbs)',
       waterproof: 'Not IP-rated (electronic motor shut-off on fault)'
     },
-    image: 'https://images.unsplash.com/photo-1547025603-ef90c50b64d0?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/takani-tk1652-rs.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1547025603-ef90c50b64d0?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/takani-tk1652-rs.jpg'
     ],
     inStock: true,
     riderSuitability: 'Riders 5-10 years old, under 45kg, wanting the highest-powered balance bike on the market.'
@@ -752,9 +753,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: 'Not published by manufacturer',
       waterproof: 'Not IP-rated (electronic motor shut-off on fault)'
     },
-    image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/takani-tk1010-20.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/takani-tk1010-20.jpg'
     ],
     inStock: true,
     riderSuitability: 'Kids ages 4-7, comparable in size/performance to a 50cc petrol trail bike but far easier to ride.'
@@ -787,9 +788,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: 'Not published by manufacturer',
       waterproof: 'Not IP-rated (electronic motor shut-off on fault)'
     },
-    image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/takani-tk1412-20.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/takani-tk1412-20.jpg'
     ],
     inStock: true,
     riderSuitability: 'Kids ages 7-11, comparable in size/performance to a 50-80cc petrol trail bike but far easier to ride.'
@@ -823,9 +824,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '90 kg (198 lbs)',
       waterproof: 'Not IP-rated (electronic motor shut-off on fault)'
     },
-    image: 'https://images.unsplash.com/photo-1509744645300-a2098b11871a?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/takani-tk1714-70.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1509744645300-a2098b11871a?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/takani-tk1714-70.jpg'
     ],
     inStock: true,
     riderSuitability: 'Riders 16+ years old, 158cm+, up to 90kg, wanting a serious-performance step up from a learner bike. Off-road/private property use only — not road legal.'
@@ -858,9 +859,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: 'N/A',
       waterproof: 'IP54 Splash Resistant'
     },
-    image: 'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/rapid-supercharger-15a-72v-80v.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/rapid-supercharger-15a-72v-80v.jpg'
     ],
     inStock: true,
     riderSuitability: 'All electric dirt bike owners wanting rapid pit-stop charges between rides.'
@@ -896,10 +897,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '65 kg (143 lbs)',
       waterproof: 'Weatherproof Sealed Airbox & Electrical Harness'
     },
-    image: 'https://images.unsplash.com/photo-1547025603-ef90c50b64d0?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/gmx-70cc-kids-dirt-bike.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1547025603-ef90c50b64d0?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/gmx-70cc-kids-dirt-bike.jpg'
     ],
     inStock: true,
     riderSuitability: 'Kids ages 6 to 11 learning trail control, throttle discipline, and foot shifting.'
@@ -934,10 +934,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '80 kg (176 lbs)',
       waterproof: 'IP65 Weatherproof Sealed Wiring Loom'
     },
-    image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/gmx-crossfire-cf110-youth.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/gmx-crossfire-cf110-youth.jpg'
     ],
     inStock: true,
     riderSuitability: 'Youth riders ages 8 to 14 seeking increased power, agility, and trail capability.'
@@ -972,10 +971,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '95 kg (209 lbs)',
       waterproof: 'Splashproof Sealed Airbox & Motocross Wiring'
     },
-    image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/gmx-125cc-pro-x-pit-bike.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/gmx-125cc-pro-x-pit-bike.jpg'
     ],
     inStock: true,
     riderSuitability: 'Confident teenagers and adult pit-bike enthusiasts seeking authentic manual clutch dirt riding.'
@@ -1010,10 +1008,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '110 kg (242 lbs)',
       waterproof: 'Sealed Heavy-Duty Off-Road Wiring'
     },
-    image: 'https://images.unsplash.com/photo-1509744645300-a2098b11871a?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/gmx-crossfire-cf140-performance.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1509744645300-a2098b11871a?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1571932646633-8758b29c9b1f?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/gmx-crossfire-cf140-performance.jpg'
     ],
     inStock: true,
     riderSuitability: 'Aggressive teenagers and adult riders looking for competition pit-bike power and big-wheel clearance.'
@@ -1048,10 +1045,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '135 kg (297 lbs)',
       waterproof: 'Sealed Dust & Water Off-Road Electrical System'
     },
-    image: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/gmx-x-series-x250-dirt-bike.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1558980394-4c7c9299fe96?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/gmx-x-series-x250-dirt-bike.jpg'
     ],
     inStock: true,
     riderSuitability: 'Adult riders demanding full-size enduro ergonomics, ground clearance, and steep hill climb power.'
@@ -1086,10 +1082,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '145 kg (320 lbs)',
       waterproof: 'Weather-Sealed Wiring Harness & Sealed Air Filter Box'
     },
-    image: 'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/gmx-crossfire-cf250-outlaw-enduro.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1558981420-87aa9dad1c89?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/gmx-crossfire-cf250-outlaw-enduro.jpg'
     ],
     inStock: true,
     riderSuitability: 'Rural property owners, weekend trail blazers, and enduro riders seeking dependable 4-stroke performance.'
@@ -1124,10 +1119,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '130 kg (286 lbs)',
       waterproof: 'IP66 Water & Dust Resistant'
     },
-    image: 'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/gmx-crossfire-ecr-3000hpu-electric.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1558981852-426c6c22a060?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/gmx-crossfire-ecr-3000hpu-electric.jpg'
     ],
     inStock: true,
     riderSuitability: 'Modern dirt bike riders wanting high-torque zero-emission performance with proven GMX chassis ergonomics.'
@@ -1162,10 +1156,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '65 kg (143 lbs)',
       waterproof: 'IP65 Weather & Splash Resistant'
     },
-    image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/gmx-crossfire-ecr1500-electric-mini.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1547025603-ef90c50b64d0?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/gmx-crossfire-ecr1500-electric-mini.jpg'
     ],
     inStock: true,
     riderSuitability: 'Kids ages 6-12 learning motorcycle controls, throttle finesse, and singletrack balance.'
@@ -1201,10 +1194,9 @@ export const PRODUCTS: Product[] = [
       maxLoad: '135 kg (297 lbs)',
       waterproof: 'IP67 Submersible Rated'
     },
-    image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/products/gmx-v75-hyper-electric-dirt-bike.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1200&q=80'
+      '/images/products/gmx-v75-hyper-electric-dirt-bike.jpg'
     ],
     inStock: true,
     riderSuitability: 'Enthusiasts and racers seeking maximum electric torque, aggressive geometry, and Australian outback endurance.'
