@@ -14,7 +14,7 @@ import {
   ArrowRight,
   ShieldCheck,
   Users,
-  Route,
+  Baby,
   Wrench,
   Calendar,
   Clock,
@@ -33,7 +33,7 @@ interface HomeViewProps {
 const CATEGORY_ICONS: Record<string, React.ElementType> = {
   'Adult Electric Dirt Bikes': Zap,
   'Youth & Childrens E-Dirt Bikes': Users,
-  'Dual Sport & Street-Legal': Route,
+  'Electric Balance Bikes': Baby,
   'GMX Australian Dirt Bikes': ShieldCheck,
   'Parts & Upgrades': Wrench,
 };
@@ -183,7 +183,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-white">Shop By Category</h2>
           <p className="text-sm text-zinc-400 leading-relaxed">
-            Every department in one place — adult hyper machines, youth e-motos, street-legal dual-sports, the official GMX range, and the parts that back them up.
+            Every department in one place — adult hyper machines, youth e-motos, electric balance bikes for the youngest riders, the official GMX range, and the parts that back them up.
           </p>
         </div>
 

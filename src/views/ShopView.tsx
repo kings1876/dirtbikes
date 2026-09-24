@@ -152,7 +152,7 @@ export const ShopView: React.FC<ShopViewProps> = ({
           Shop All Electric Dirt Bikes
         </h1>
         <p className="mt-2 text-sm text-zinc-400 max-w-2xl leading-relaxed">
-          {PRODUCTS.length} adult, youth, dual-sport, and GMX Australian models. Free nationwide shipping, 2-year warranty, and 10% instant crypto discount on every order.
+          {PRODUCTS.length} adult, youth, electric balance bike, and GMX Australian models. Free nationwide shipping, 2-year warranty, and 10% instant crypto discount on every order.
         </p>
       </section>
 

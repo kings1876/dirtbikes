@@ -18,7 +18,7 @@ export interface Product {
   id: string;
   name: string;
   slug: string;
-  category: 'Adult Electric Dirt Bikes' | 'Youth & Childrens E-Dirt Bikes' | 'Dual Sport & Street-Legal' | 'GMX Australian Dirt Bikes' | 'Parts & Upgrades';
+  category: 'Adult Electric Dirt Bikes' | 'Youth & Childrens E-Dirt Bikes' | 'Electric Balance Bikes' | 'GMX Australian Dirt Bikes' | 'Parts & Upgrades';
   subcategory: string;
   price: number;
   originalPrice?: number;

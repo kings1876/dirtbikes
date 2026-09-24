@@ -3,7 +3,13 @@ import { Product } from '../types';
 export const CATEGORIES = [
   {
     name: 'Adult Electric Dirt Bikes',
-    subcategories: ['Trail & Enduro', 'Motocross & Competition', 'High-Performance Hyper'],
+    subcategories: [
+      'Trail & Enduro',
+      'Motocross & Competition',
+      'High-Performance Hyper',
+      'Urban / Trail Commuter',
+      'Adventure Dual Sport'
+    ],
     description: 'High-torque, lightweight electric beasts built to dominate steep technical climbs and off-road tracks without engine roar.'
   },
   {
@@ -12,9 +18,9 @@ export const CATEGORIES = [
     description: 'Engineered for young riders with 3-speed parental governor limiters, instant throttle control, and whisper-quiet operation.'
   },
   {
-    name: 'Dual Sport & Street-Legal',
-    subcategories: ['Urban / Trail Commuter', 'Adventure Dual Sport'],
-    description: 'DOT & ADR compliant street-legal e-motos designed to seamlessly transition from city asphalt to rugged outback trails.'
+    name: 'Electric Balance Bikes',
+    subcategories: ['First Ride (Ages 2-4)', 'Pedal-Free Trainers (Ages 4-6)'],
+    description: 'Ultra-lightweight, pedal-free electric balance bikes that teach the youngest riders throttle control and trail confidence before they ever swing a leg over a geared bike.'
   },
   {
     name: 'GMX Australian Dirt Bikes',
@@ -190,7 +196,7 @@ export const PRODUCTS: Product[] = [
     id: 'nomad-72v-dual-sport',
     name: 'Nomad 72V Dual-Sport (Street & Trail)',
     slug: 'nomad-72v-dual-sport',
-    category: 'Dual Sport & Street-Legal',
+    category: 'Adult Electric Dirt Bikes',
     subcategory: 'Urban / Trail Commuter',
     price: 5299,
     originalPrice: 5799,
@@ -298,7 +304,7 @@ export const PRODUCTS: Product[] = [
     id: 'ranger-x-outback-adventure',
     name: 'Ranger X Outback Adventure Dual-Sport',
     slug: 'ranger-x-outback-adventure',
-    category: 'Dual Sport & Street-Legal',
+    category: 'Adult Electric Dirt Bikes',
     subcategory: 'Adventure Dual Sport',
     price: 5699,
     badge: 'Popular',
