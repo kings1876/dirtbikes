@@ -44,10 +44,6 @@ export default function App() {
   const activePage = pathToActivePage(location.pathname);
   const [shopCategory, setShopCategory] = useState<string>('All');
 
-  const handleSetActivePage = (page: ActivePage) => {
-    navigate(PAGE_PATHS[page]);
-  };
-
   const goToProduct = (product: Product) => {
     navigate(`/product/${product.slug}`);
   };
@@ -138,7 +134,6 @@ export default function App() {
       {/* Main Sticky Navbar */}
       <Navbar
         activePage={activePage}
-        setActivePage={handleSetActivePage}
         cartItems={cartItems}
         setIsCartOpen={setIsCartOpen}
         setIsSearchOpen={setIsSearchOpen}
@@ -183,7 +178,7 @@ export default function App() {
 
           <Route path="/blog" element={<BlogView />} />
 
-          <Route path="/about" element={<AboutView onExploreShop={() => navigate('/shop')} />} />
+          <Route path="/about" element={<AboutView />} />
 
           <Route
             path="/contact"
@@ -208,7 +203,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer setActivePage={handleSetActivePage} openPolicy={setActivePolicy} />
+      <Footer openPolicy={setActivePolicy} />
 
       {/* Full Order & Cart Form Modal with Crypto 10% Discount */}
       <OrderModal

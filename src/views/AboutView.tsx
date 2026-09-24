@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Zap,
   Award,
@@ -13,11 +14,7 @@ import {
 } from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
 
-interface AboutViewProps {
-  onExploreShop: () => void;
-}
-
-export const AboutView: React.FC<AboutViewProps> = ({ onExploreShop }) => {
+export const AboutView: React.FC = () => {
   useSEO({
     title: 'About Kanvale Dirt Bikes | Authorised Australian Dealer',
     description:
@@ -181,13 +178,13 @@ export const AboutView: React.FC<AboutViewProps> = ({ onExploreShop }) => {
           </p>
         </div>
 
-        <button
-          onClick={onExploreShop}
+        <Link
+          to="/shop"
           className="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs font-black font-mono uppercase tracking-wider transition-all shadow-lg shadow-emerald-500/20 flex items-center gap-2 cursor-pointer flex-shrink-0"
         >
           <span>Explore All E-Dirt Bikes</span>
           <ArrowRight className="w-4 h-4" />
-        </button>
+        </Link>
       </section>
     </div>
   );

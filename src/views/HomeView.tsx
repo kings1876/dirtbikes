@@ -171,13 +171,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 </p>
               </div>
 
-              <button
+              <Link
+                to="/shop"
                 onClick={onSelectGMX}
                 className="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-mono text-xs font-black transition-all shadow-lg shadow-amber-500/30 flex items-center justify-center gap-2 cursor-pointer flex-shrink-0 w-full sm:w-auto"
               >
                 <span>View GMX Bikes (9 Models)</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>

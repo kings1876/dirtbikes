@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Logo } from './Logo';
 import { ActivePage, PolicyPage } from '../types';
 import { 
@@ -14,13 +15,20 @@ import {
 } from 'lucide-react';
 
 interface FooterProps {
-  setActivePage: (page: ActivePage) => void;
   openPolicy: (policy: PolicyPage) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ setActivePage, openPolicy }) => {
-  const handlePageClick = (page: ActivePage) => {
-    setActivePage(page);
+const PAGE_PATHS: Record<ActivePage, string> = {
+  home: '/',
+  shop: '/shop',
+  blog: '/blog',
+  about: '/about',
+  contact: '/contact',
+  faq: '/faq',
+};
+
+export const Footer: React.FC<FooterProps> = ({ openPolicy }) => {
+  const handlePageClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -112,49 +120,54 @@ Kanvale Dirt Bikes is an <span className="text-zinc-200 font-semibold">authorise
             </h3>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <button
-                  onClick={() => handlePageClick('shop')}
+                <Link
+                  to={PAGE_PATHS.shop}
+                  onClick={handlePageClick}
                   className="hover:text-emerald-400 transition-colors flex items-center gap-1"
                 >
                   <ChevronRight className="w-3 h-3 text-emerald-500" />
                   <span>Shop E-Dirt Bikes</span>
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handlePageClick('blog')}
+                <Link
+                  to={PAGE_PATHS.blog}
+                  onClick={handlePageClick}
                   className="hover:text-emerald-400 transition-colors flex items-center gap-1"
                 >
                   <ChevronRight className="w-3 h-3 text-emerald-500" />
                   <span>Riding Blog &amp; Guides</span>
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handlePageClick('about')}
+                <Link
+                  to={PAGE_PATHS.about}
+                  onClick={handlePageClick}
                   className="hover:text-emerald-400 transition-colors flex items-center gap-1"
                 >
                   <ChevronRight className="w-3 h-3 text-emerald-500" />
                   <span>About Kanvale</span>
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handlePageClick('contact')}
+                <Link
+                  to={PAGE_PATHS.contact}
+                  onClick={handlePageClick}
                   className="hover:text-emerald-400 transition-colors flex items-center gap-1"
                 >
                   <ChevronRight className="w-3 h-3 text-emerald-500" />
                   <span>Contact &amp; Support</span>
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handlePageClick('faq')}
+                <Link
+                  to={PAGE_PATHS.faq}
+                  onClick={handlePageClick}
                   className="hover:text-emerald-400 transition-colors flex items-center gap-1"
                 >
                   <ChevronRight className="w-3 h-3 text-emerald-500" />
                   <span>Frequently Asked Questions</span>
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -198,12 +211,13 @@ Kanvale Dirt Bikes is an <span className="text-zinc-200 font-semibold">authorise
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => handlePageClick('contact')}
+                <Link
+                  to={PAGE_PATHS.contact}
+                  onClick={handlePageClick}
                   className="hover:text-emerald-400 transition-colors"
                 >
                   Wholesale &amp; Dealer Inquiries
-                </button>
+                </Link>
               </li>
             </ul>
           </div>

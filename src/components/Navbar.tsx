@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Logo } from './Logo';
 import { ActivePage, CartItem } from '../types';
 import { 
@@ -15,7 +16,6 @@ import {
 
 interface NavbarProps {
   activePage: ActivePage;
-  setActivePage: (page: ActivePage) => void;
   cartItems: CartItem[];
   setIsCartOpen: (open: boolean) => void;
   setIsSearchOpen: (open: boolean) => void;
@@ -25,7 +25,6 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({
   activePage,
-  setActivePage,
   cartItems,
   setIsCartOpen,
   setIsSearchOpen,
@@ -37,16 +36,16 @@ export const Navbar: React.FC<NavbarProps> = ({
   const totalCartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   // Strictly respect user-specified menu order: Shop, Blog, About, Contact, FAQ
-  const navLinks: { name: string; page: ActivePage }[] = [
-    { name: 'Shop', page: 'shop' },
-    { name: 'Blog', page: 'blog' },
-    { name: 'About', page: 'about' },
-    { name: 'Contact', page: 'contact' },
-    { name: 'FAQ', page: 'faq' },
+  const navLinks: { name: string; page: ActivePage; path: string }[] = [
+    { name: 'Shop', page: 'shop', path: '/shop' },
+    { name: 'Blog', page: 'blog', path: '/blog' },
+    { name: 'About', page: 'about', path: '/about' },
+    { name: 'Contact', page: 'contact', path: '/contact' },
+    { name: 'FAQ', page: 'faq', path: '/faq' },
   ];
 
-  const handleNavClick = (page: ActivePage) => {
-    setActivePage(page);
+  // Real <Link> elements handle navigation; this just tidies up UI state on click.
+  const handleNavClick = () => {
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -62,7 +61,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               FREE NATIONWIDE SHIPPING
             </span>
             {onSelectGMX && (
-              <button
+              <Link
+                to="/shop"
                 onClick={() => {
                   onSelectGMX();
                   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -70,7 +70,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className="hidden sm:inline-flex items-center gap-1 rounded bg-amber-500/20 px-2 py-0.5 font-bold text-amber-300 border border-amber-500/40 hover:bg-amber-500/30 transition-colors cursor-pointer"
               >
                 <span>🇦🇺 NEW: GMX Motorbikes Added (70cc - 250cc &amp; ECR)</span>
-              </button>
+              </Link>
             )}
           </div>
 
@@ -91,22 +91,24 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Brand Logo */}
-          <button
-            onClick={() => handleNavClick('home')}
+          <Link
+            to="/"
+            onClick={handleNavClick}
             className="flex items-center text-left focus:outline-none group cursor-pointer"
             aria-label="Kanvale Dirt Bikes Home"
           >
             <Logo size="md" />
-          </button>
+          </Link>
 
           {/* Desktop Nav Links in strict user order: Shop, Blog, About, Contact, FAQ */}
           <nav className="hidden lg:flex items-center space-x-1" aria-label="Main Navigation">
             {navLinks.map((link) => {
               const isActive = activePage === link.page;
               return (
-                <button
+                <Link
                   key={link.page}
-                  onClick={() => handleNavClick(link.page)}
+                  to={link.path}
+                  onClick={handleNavClick}
                   className={`px-4 py-2 rounded-lg font-medium text-sm transition-colors cursor-pointer ${
                     isActive
                       ? 'bg-zinc-800 text-emerald-400 font-semibold shadow-sm'
@@ -114,12 +116,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                   }`}
                 >
                   {link.name}
-                </button>
+                </Link>
               );
             })}
 
             {onSelectGMX && (
-              <button
+              <Link
+                to="/shop"
                 onClick={() => {
                   onSelectGMX();
                   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -127,7 +130,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className="ml-2 px-3 py-1.5 rounded-lg font-mono text-xs font-bold text-amber-300 bg-amber-950/60 border border-amber-500/40 hover:bg-amber-900/60 transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm shadow-amber-500/10"
               >
                 <span>🇦🇺 GMX Range (9)</span>
-              </button>
+              </Link>
             )}
           </nav>
 
@@ -184,9 +187,10 @@ export const Navbar: React.FC<NavbarProps> = ({
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-zinc-800 bg-zinc-950 px-4 pt-3 pb-6 space-y-2">
           {navLinks.map((link) => (
-            <button
+            <Link
               key={link.page}
-              onClick={() => handleNavClick(link.page)}
+              to={link.path}
+              onClick={handleNavClick}
               className={`w-full text-left px-4 py-3 rounded-lg text-base font-medium flex items-center justify-between ${
                 activePage === link.page
                   ? 'bg-zinc-800 text-emerald-400 font-semibold'
@@ -195,11 +199,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <span>{link.name}</span>
               <Zap className="w-4 h-4 text-emerald-500/60" />
-            </button>
+            </Link>
           ))}
 
           {onSelectGMX && (
-            <button
+            <Link
+              to="/shop"
               onClick={() => {
                 onSelectGMX();
                 setMobileMenuOpen(false);
@@ -209,7 +214,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <span>🇦🇺 GMX Motorbikes (70cc - 250cc &amp; ECR)</span>
               <span className="text-[10px] px-2 py-0.5 rounded bg-amber-500 text-black font-bold">9 Models</span>
-            </button>
+            </Link>
           )}
 
           <div className="pt-3 border-t border-zinc-900 flex flex-col gap-2">

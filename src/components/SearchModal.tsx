@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { Product } from '../types';
 import { PRODUCTS } from '../data/products';
 import { Search, X, Zap, ArrowRight, Truck } from 'lucide-react';
@@ -97,8 +98,9 @@ export const SearchModal: React.FC<SearchModalProps> = ({
             </div>
           ) : (
             filteredProducts.map((p) => (
-              <div
+              <Link
                 key={p.id}
+                to={`/product/${p.slug}`}
                 onClick={() => {
                   onSelectProduct(p);
                   onClose();
@@ -129,7 +131,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     -10% with Crypto
                   </span>
                 </div>
-              </div>
+              </Link>
             ))
           )}
         </div>

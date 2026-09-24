@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Product } from '../types';
 import { Zap, Gauge, Battery, Weight, ArrowRight, ShieldCheck, Truck } from 'lucide-react';
 
@@ -29,9 +30,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <div className="group relative flex flex-col rounded-2xl bg-zinc-900/60 border border-zinc-800/90 hover:border-emerald-500/50 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-emerald-950/20">
       {/* Top Image Container */}
-      <div 
+      <Link
+        to={`/product/${product.slug}`}
         onClick={() => onSelectProduct(product)}
-        className="relative aspect-[16/10] overflow-hidden bg-zinc-950 cursor-pointer"
+        className="relative aspect-[16/10] overflow-hidden bg-zinc-950 cursor-pointer block"
       >
         <img
           src={product.image}
@@ -64,7 +66,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             FREE SHIPPING
           </span>
         </div>
-      </div>
+      </Link>
 
       {/* Content Body */}
       <div className="flex-1 flex flex-col p-5">
@@ -72,11 +74,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-medium">
             {product.category}
           </span>
-          <h3 
-            onClick={() => onSelectProduct(product)}
-            className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors cursor-pointer mt-0.5 line-clamp-1"
-          >
-            {product.name}
+          <h3 className="mt-0.5">
+            <Link
+              to={`/product/${product.slug}`}
+              onClick={() => onSelectProduct(product)}
+              className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors cursor-pointer line-clamp-1 block"
+            >
+              {product.name}
+            </Link>
           </h3>
         </div>
 
@@ -147,13 +152,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
           {/* Action Buttons */}
           <div className="grid grid-cols-2 gap-2">
-            <button
+            <Link
+              to={`/product/${product.slug}`}
               onClick={() => onSelectProduct(product)}
               className="py-2.5 px-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-semibold transition-colors flex items-center justify-center gap-1 cursor-pointer"
             >
               <span>View Specs</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </Link>
 
             <button
               onClick={() => onAddToCart(product)}
