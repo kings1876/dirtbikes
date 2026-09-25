@@ -236,7 +236,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     src={CATEGORY_IMAGES[cat.name]}
                     alt=""
                     aria-hidden="true"
-                    className={`w-full h-full object-cover opacity-25 group-hover:opacity-35 transition-opacity duration-300 filter contrast-125 ${CATEGORY_IMAGE_POSITION[cat.name] || 'object-center'}`}
+                    className={`w-full h-full object-cover opacity-45 group-hover:opacity-55 transition-opacity duration-300 filter contrast-125 ${CATEGORY_IMAGE_POSITION[cat.name] || 'object-center'}`}
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t ${isGMX ? 'from-amber-950/90' : 'from-zinc-950/95'} via-zinc-950/80 to-zinc-950/50`} />
                 </div>
