@@ -46,6 +46,24 @@ const CATEGORY_ICONS: Record<string, React.ElementType> = {
   'Parts & Upgrades': Wrench,
 };
 
+const CATEGORY_IMAGES: Record<string, string> = {
+  Surron: '/images/products/surron-light-bee-x.jpg',
+  Talaria: '/images/products/talaria-sting-r-mx4.jpg',
+  'Stark Future': '/images/products/stark-varg-mx-60hp.jpg',
+  '79Bikes': '/images/products/79bikes-viper-s.jpg',
+  Yotsuba: '/images/products/yotsuba-moto-16.jpg',
+  Takani: '/images/products/takani-tk1714-70.jpg',
+  'Electric Balance Bikes': '/images/products/kka-electric-balance-bike-16.jpg',
+  'GMX Australian Dirt Bikes': '/images/products/gmx-v75-hyper-electric-dirt-bike.jpg',
+  'Parts & Upgrades': '/images/products/rapid-supercharger-15a-72v-80v.jpg',
+};
+
+// Most product photos are centered; this one has large printed spec text near
+// the top, so it's cropped to the cleaner lower half of the frame instead.
+const CATEGORY_IMAGE_POSITION: Record<string, string> = {
+  'Parts & Upgrades': 'object-bottom',
+};
+
 const DEALER_BENCHMARKS = [
   {
     icon: ShieldCheck,
@@ -206,15 +224,26 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 key={cat.name}
                 to="/shop"
                 onClick={() => onSelectCategory(cat.name)}
-                className={`p-5 rounded-2xl border transition-all group flex flex-col ${
+                className={`relative overflow-hidden p-5 rounded-2xl border transition-all group flex flex-col min-h-[220px] ${
                   isGMX
-                    ? 'bg-amber-950/25 border-amber-500/40 hover:border-amber-400'
-                    : 'bg-zinc-900/60 border-zinc-800/80 hover:border-emerald-500/40'
+                    ? 'border-amber-500/40 hover:border-amber-400'
+                    : 'border-zinc-800/80 hover:border-emerald-500/40'
                 }`}
               >
-                <div className="flex items-start justify-between mb-3">
+                {/* Background image + gradient overlay, same treatment as the hero */}
+                <div className="absolute inset-0 z-0 bg-zinc-950">
+                  <img
+                    src={CATEGORY_IMAGES[cat.name]}
+                    alt=""
+                    aria-hidden="true"
+                    className={`w-full h-full object-cover opacity-25 group-hover:opacity-35 transition-opacity duration-300 filter contrast-125 ${CATEGORY_IMAGE_POSITION[cat.name] || 'object-center'}`}
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-t ${isGMX ? 'from-amber-950/90' : 'from-zinc-950/95'} via-zinc-950/80 to-zinc-950/50`} />
+                </div>
+
+                <div className="relative z-10 flex items-start justify-between mb-3">
                   <div
-                    className={`w-11 h-11 rounded-xl flex items-center justify-center ${
+                    className={`w-11 h-11 rounded-xl flex items-center justify-center backdrop-blur-sm ${
                       isGMX ? 'bg-amber-500/10 border border-amber-500/30' : 'bg-emerald-500/10 border border-emerald-500/20'
                     }`}
                   >
@@ -229,14 +258,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   </span>
                 </div>
 
-                <h3 className={`text-sm font-bold mb-1.5 ${isGMX ? 'text-amber-300' : 'text-white'}`}>
+                <h3 className={`relative z-10 text-sm font-bold mb-1.5 ${isGMX ? 'text-amber-300' : 'text-white'}`}>
                   {isGMX ? '🇦🇺 ' : ''}
                   {cat.name}
                 </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed flex-1">{cat.description}</p>
+                <p className="relative z-10 text-xs text-zinc-300 leading-relaxed flex-1">{cat.description}</p>
 
                 <span
-                  className={`mt-4 inline-flex items-center gap-1.5 text-xs font-mono font-bold ${
+                  className={`relative z-10 mt-4 inline-flex items-center gap-1.5 text-xs font-mono font-bold ${
                     isGMX ? 'text-amber-400 group-hover:text-amber-300' : 'text-emerald-400 group-hover:text-emerald-300'
                   }`}
                 >
