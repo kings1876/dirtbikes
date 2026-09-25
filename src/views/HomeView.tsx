@@ -102,7 +102,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <img
             src="/images/hero-action.jpg"
             alt="Kanvale Electric Dirt Bike Action"
-            className="w-full h-full object-cover object-center opacity-20 filter contrast-125"
+            className="w-full h-full object-cover object-center opacity-50 filter contrast-125"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/80 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
