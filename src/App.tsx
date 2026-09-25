@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { ActivePage, CartItem, PolicyPage, Product } from './types';
 import { PRODUCTS } from './data/products';
 import { Navbar } from './components/Navbar';
+import { TrustBar } from './components/TrustBar';
 import { Footer } from './components/Footer';
 import { OrderModal } from './components/OrderModal';
 import { SearchModal } from './components/SearchModal';
@@ -131,6 +132,8 @@ export default function App() {
       )}
 
       <ScrollToTop />
+
+      <TrustBar />
 
       {/* Main Sticky Navbar */}
       <Navbar
