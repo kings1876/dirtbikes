@@ -13,6 +13,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { HomeView } from './views/HomeView';
 import { ShopView } from './views/ShopView';
 import { BlogView } from './views/BlogView';
+import { BlogPostView } from './views/BlogPostView';
 import { AboutView } from './views/AboutView';
 import { ContactView } from './views/ContactView';
 import { FaqView } from './views/FaqView';
@@ -177,6 +178,8 @@ export default function App() {
           />
 
           <Route path="/blog" element={<BlogView />} />
+
+          <Route path="/blog/:slug" element={<BlogPostView />} />
 
           <Route path="/about" element={<AboutView />} />
 

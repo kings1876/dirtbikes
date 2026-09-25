@@ -4,6 +4,7 @@ import { writeFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { PRODUCTS } from '../src/data/products';
+import { BLOG_POSTS } from '../src/data/blog';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -25,7 +26,13 @@ const productRoutes = PRODUCTS.map((p) => ({
   changefreq: 'weekly',
 }));
 
-const allRoutes = [...staticRoutes, ...productRoutes];
+const blogRoutes = BLOG_POSTS.map((p) => ({
+  path: `/blog/${p.slug}`,
+  priority: '0.6',
+  changefreq: 'monthly',
+}));
+
+const allRoutes = [...staticRoutes, ...productRoutes, ...blogRoutes];
 
 const urlEntries = allRoutes
   .map(
@@ -71,4 +78,6 @@ Sitemap: ${SITE_URL}/sitemap.xml
 writeFileSync(resolve(__dirname, '../public/sitemap.xml'), sitemap);
 writeFileSync(resolve(__dirname, '../public/robots.txt'), robots);
 
-console.log(`Generated sitemap.xml with ${allRoutes.length} URLs (${productRoutes.length} products) and robots.txt`);
+console.log(
+  `Generated sitemap.xml with ${allRoutes.length} URLs (${productRoutes.length} products, ${blogRoutes.length} blog posts) and robots.txt`
+);
